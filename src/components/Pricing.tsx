@@ -1,4 +1,3 @@
-
 import { Check, Star } from 'lucide-react';
 
 const Pricing = () => {
@@ -8,8 +7,7 @@ const Pricing = () => {
       price: "R$399,90",
       implementation: "R$999,90",
       features: [
-        "Agente de IA integrada com Planilhas",
-        "Suporte básico"
+        "Agente de IA integrada com Planilhas"
       ],
       popular: false
     },
@@ -19,8 +17,7 @@ const Pricing = () => {
       implementation: "R$1.499,90",
       features: [
         "Agente de IA integrada com banco de dados",
-        "Mensagens programadas ou agendamento de mensagens",
-        "Suporte prioritário"
+        "Mensagens programadas ou agendamento de mensagens"
       ],
       popular: true
     },
@@ -31,8 +28,7 @@ const Pricing = () => {
       features: [
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas com interface de agendamento",
-        "Disparo automático de mensagens",
-        "Suporte premium"
+        "Disparo automático de mensagens"
       ],
       popular: false
     },
@@ -45,9 +41,7 @@ const Pricing = () => {
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas",
         "Disparo de mensagens automático",
-        "Funcionalidades personalizadas",
-        "Suporte dedicado 24/7",
-        "Integração com sistemas existentes"
+        "Funcionalidades personalizadas"
       ],
       popular: false
     }
@@ -127,7 +121,7 @@ const Pricing = () => {
 
         <div className="text-center mt-12">
           <p className="text-white/80 text-sm">
-            Todos os planos incluem suporte técnico e atualizações gratuitas
+            Todos os planos incluem atualizações gratuitas
           </p>
         </div>
       </div>
