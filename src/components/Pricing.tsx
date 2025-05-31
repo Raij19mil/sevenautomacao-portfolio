@@ -9,8 +9,7 @@ const Pricing = () => {
       implementation: "R$999,90",
       features: [
         "Agente de IA integrada com Planilhas",
-        "Suporte básico",
-        "1 agente por conta"
+        "Suporte básico"
       ],
       popular: false
     },
@@ -21,8 +20,7 @@ const Pricing = () => {
       features: [
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas ou agendamento de mensagens",
-        "Suporte prioritário",
-        "Até 3 agentes"
+        "Suporte prioritário"
       ],
       popular: true
     },
@@ -34,8 +32,7 @@ const Pricing = () => {
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas com interface de agendamento",
         "Disparo automático de mensagens",
-        "Suporte premium",
-        "Agentes ilimitados"
+        "Suporte premium"
       ],
       popular: false
     },
@@ -116,9 +113,14 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button className="w-full bg-accent hover:bg-orange-light text-white py-3 rounded-lg font-semibold transition-all transform hover:scale-105">
+              <a 
+                href="https://wa.me/qr/S2LLH6YRFMOGN1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-accent hover:bg-orange-light text-white py-3 rounded-lg font-semibold transition-all transform hover:scale-105 block text-center"
+              >
                 Escolher Plano
-              </button>
+              </a>
             </div>
           ))}
         </div>
