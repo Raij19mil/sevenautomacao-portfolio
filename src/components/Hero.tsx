@@ -1,3 +1,4 @@
+
 import { Bot, Zap, Rocket } from 'lucide-react';
 const Hero = () => {
   return <section id="inicio" className="min-h-screen flex items-center bg-gradient-to-br from-primary via-secondary to-accent text-white pt-16">
@@ -14,9 +15,14 @@ const Hero = () => {
               para otimizar seus processos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-accent hover:bg-orange-light text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
+              <a 
+                href="https://wa.me/qr/S2LLH6YRFMOGN1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-accent hover:bg-orange-light text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-center"
+              >
                 Começar Agora
-              </button>
+              </a>
               
             </div>
           </div>
