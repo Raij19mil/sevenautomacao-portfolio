@@ -1,3 +1,4 @@
+
 import { Check, Star } from 'lucide-react';
 
 const Pricing = () => {
@@ -7,7 +8,8 @@ const Pricing = () => {
       price: "R$399,90",
       implementation: "R$999,90",
       features: [
-        "Agente de IA integrada com Planilhas"
+        "Agente de IA integrada com Planilhas",
+        "Suporte via WhatsApp"
       ],
       popular: false
     },
@@ -17,7 +19,8 @@ const Pricing = () => {
       implementation: "R$1.499,90",
       features: [
         "Agente de IA integrada com banco de dados",
-        "Mensagens programadas ou agendamento de mensagens"
+        "Mensagens programadas ou agendamento de mensagens",
+        "Suporte prioritário via WhatsApp"
       ],
       popular: true
     },
@@ -28,7 +31,8 @@ const Pricing = () => {
       features: [
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas com interface de agendamento",
-        "Disparo automático de mensagens"
+        "Disparo automático de mensagens",
+        "Suporte prioritário via WhatsApp"
       ],
       popular: false
     },
@@ -41,7 +45,8 @@ const Pricing = () => {
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas",
         "Disparo de mensagens automático",
-        "Funcionalidades personalizadas"
+        "Funcionalidades personalizadas",
+        "Suporte dedicado via WhatsApp"
       ],
       popular: false
     }
