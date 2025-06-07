@@ -1,4 +1,3 @@
-
 import { Check, Star } from 'lucide-react';
 
 const Pricing = () => {
@@ -27,7 +26,7 @@ const Pricing = () => {
     {
       name: "Plus",
       price: "R$799,90", 
-      implementation: "R$2.299,90",
+      implementation: "R$1.799,90",
       features: [
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas com interface de agendamento",
