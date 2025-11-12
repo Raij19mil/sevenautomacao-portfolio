@@ -1,4 +1,3 @@
-
 import { Bot, Zap, Rocket } from 'lucide-react';
 const Hero = () => {
   return <section id="inicio" className="min-h-screen flex items-center bg-background text-foreground pt-16">
@@ -15,12 +14,7 @@ const Hero = () => {
               para otimizar seus processos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="https://wa.me/qr/S2LLH6YRFMOGN1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-center"
-              >
+              <a href="https://wa.me/qr/S2LLH6YRFMOGN1" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-center">
                 Começar Agora
               </a>
               
@@ -42,7 +36,7 @@ const Hero = () => {
               <div className="bg-card border border-border rounded-xl p-6 transform rotate-1 hover:rotate-0 transition-transform -mt-4">
                 <Rocket className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-lg font-semibold mb-2 text-foreground">Crescimento</h3>
-                <p className="text-sm text-muted-foreground">Escale seu negócio rapidamente</p>
+                <p className="text-sm text-muted-foreground">Escale seu negócio rapidamente sem se precu   </p>
               </div>
             </div>
           </div>
