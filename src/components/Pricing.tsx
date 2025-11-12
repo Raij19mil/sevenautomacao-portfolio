@@ -5,7 +5,7 @@ const Pricing = () => {
     {
       name: "Básico",
       price: "R$399,90",
-      implementation: "R$799,99",
+      implementation: "R$999,90",
       features: [
         "Agente de IA integrada com Planilhas",
         "Suporte via WhatsApp"
@@ -15,7 +15,7 @@ const Pricing = () => {
     {
       name: "Intermediário", 
       price: "R$599,90",
-      implementation: "R$799,99",
+      implementation: "R$1.499,90",
       features: [
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas ou agendamento de mensagens",
@@ -26,7 +26,7 @@ const Pricing = () => {
     {
       name: "Plus",
       price: "R$799,90", 
-      implementation: "R$799,99",
+      implementation: "R$1.799,90",
       features: [
         "Agente de IA integrada com banco de dados",
         "Mensagens programadas com interface de agendamento",
