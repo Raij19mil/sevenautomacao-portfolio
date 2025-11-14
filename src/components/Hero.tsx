@@ -2,14 +2,8 @@ import { Bot, Zap, Rocket } from 'lucide-react';
 const Hero = () => {
   return <section id="inicio" className="relative min-h-screen flex items-center bg-background text-foreground pt-16 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full">
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-primary/30 via-primary/5 to-transparent rotate-[-15deg] origin-top"></div>
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-primary/25 via-primary/5 to-transparent rotate-[-8deg] origin-top"></div>
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-primary/30 via-primary/5 to-transparent rotate-[0deg] origin-top"></div>
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-primary/25 via-primary/5 to-transparent rotate-[8deg] origin-top"></div>
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-primary/30 via-primary/5 to-transparent rotate-[15deg] origin-top"></div>
-          <div className="absolute top-0 left-1/2 w-[200px] h-[200px] bg-primary/20 rounded-full blur-3xl"></div>
-        </div>
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary rounded-full blur-[150px] opacity-40"></div>
+        <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-primary rounded-full blur-[120px] opacity-30"></div>
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
