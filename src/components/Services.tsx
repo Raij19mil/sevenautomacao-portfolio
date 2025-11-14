@@ -1,37 +1,55 @@
 
-import { Bot, Database, MessageSquare, Zap, Calendar, BarChart } from 'lucide-react';
+import { Bot, Database, MessageSquare, Zap, Calendar, BarChart, MessagesSquare, Users } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
       icon: Bot,
       title: "Agente de IA",
-      description: "Assistentes virtuais inteligentes para atendimento automatizado e suporte ao cliente 24/7."
+      description: "Assistentes virtuais inteligentes para atendimento automatizado e suporte ao cliente 24/7.",
+      color: "primary"
     },
     {
       icon: Database,
       title: "Integração com Banco de Dados",
-      description: "Conecte seus dados de forma segura e eficiente para análises e automações avançadas."
+      description: "Conecte seus dados de forma segura e eficiente para análises e automações avançadas.",
+      color: "primary"
     },
     {
       icon: MessageSquare,
       title: "Mensagens Programadas",
-      description: "Sistema de comunicação automatizada com agendamento e personalização avançada."
+      description: "Sistema de comunicação automatizada com agendamento e personalização avançada.",
+      color: "primary"
+    },
+    {
+      icon: MessagesSquare,
+      title: "Plataforma de Chat",
+      description: "Sistema completo de chat em tempo real para comunicação eficiente com seus clientes.",
+      color: "primary"
     },
     {
       icon: Zap,
       title: "Disparo Automático",
-      description: "Automatize envios de mensagens, e-mails e notificações baseados em triggers específicos."
+      description: "Automatize envios de mensagens, e-mails e notificações baseados em triggers específicos.",
+      color: "primary"
     },
     {
       icon: Calendar,
       title: "Agendamento Inteligente",
-      description: "Sistema de agendamento com IA para otimizar horários e recursos disponíveis."
+      description: "Sistema de agendamento com IA para otimizar horários e recursos disponíveis.",
+      color: "primary"
     },
     {
       icon: BarChart,
       title: "Relatórios e Analytics",
-      description: "Dashboards completos com métricas em tempo real para acompanhar performance."
+      description: "Dashboards completos com métricas em tempo real para acompanhar performance.",
+      color: "primary"
+    },
+    {
+      icon: Users,
+      title: "Seven RH Platform",
+      description: "Plataforma completa de Recursos Humanos para gestão de pessoas, recrutamento e desenvolvimento de talentos.",
+      color: "seven"
     }
   ];
 
@@ -47,14 +65,14 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
               className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all transform hover:-translate-y-2 group"
             >
-              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <service.icon className="w-8 h-8 text-primary-foreground" />
+              <div className={`w-16 h-16 ${service.color === 'seven' ? 'bg-seven' : 'bg-primary'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                <service.icon className={`w-8 h-8 ${service.color === 'seven' ? 'text-seven-foreground' : 'text-primary-foreground'}`} />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-4">
                 {service.title}
