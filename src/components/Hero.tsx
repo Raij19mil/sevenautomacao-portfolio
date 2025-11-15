@@ -40,7 +40,12 @@ const Hero = () => {
               <div className="bg-card border border-border rounded-xl p-6 transform rotate-1 hover:rotate-0 transition-transform -mt-4">
                 <Rocket className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-lg font-semibold mb-2 text-foreground">Crescimento</h3>
-                <p className="text-sm text-muted-foreground">Escale seu negócio rapidamente sem se precu   </p>
+                <p className="text-sm text-muted-foreground">Escale seu negócio rapidamente sem se preocupação               
+   
+   
+   
+   
+                                                                                                                        </p>
               </div>
             </div>
           </div>
