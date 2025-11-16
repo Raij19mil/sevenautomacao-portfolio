@@ -1,4 +1,4 @@
-import { Bot, Zap, Rocket } from 'lucide-react';
+import { Bot, Zap, Sparkles } from 'lucide-react';
 const Hero = () => {
   return <section id="inicio" className="relative min-h-screen flex items-center bg-background text-foreground pt-16 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
             <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm mb-4 animate-slide-up">
-              🚀 A nova geração de automação
+              A nova geração de automação
             </div>
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               Automação
@@ -22,7 +22,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="https://wa.me/qr/S2LLH6YRFMOGN1" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 text-center hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20">
-                🚀 Começar Agora
+                Começar Agora
               </a>
             </div>
           </div>
@@ -40,9 +40,9 @@ const Hero = () => {
                 <p className="text-sm text-muted-foreground">Processos automatizados e eficientes</p>
               </div>
               <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 transform rotate-1 hover:rotate-0 hover:scale-105 hover:border-primary/40 transition-all duration-300 -mt-4 hover:shadow-[0_0_30px_hsl(165_70%_38%/0.3)]">
-                <Rocket className="w-12 h-12 text-primary mb-4 animate-float" style={{ animationDelay: '1s' }} />
-                <h3 className="text-lg font-bold mb-2 text-foreground">Crescimento</h3>
-                <p className="text-sm text-muted-foreground">Escale seu negócio rapidamente</p>
+                <Sparkles className="w-12 h-12 text-primary mb-4 animate-float" style={{ animationDelay: '1s' }} />
+                <h3 className="text-lg font-bold mb-2 text-foreground">Inovação</h3>
+                <p className="text-sm text-muted-foreground">Tecnologia de ponta sempre</p>
               </div>
             </div>
           </div>
