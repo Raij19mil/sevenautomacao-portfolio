@@ -66,22 +66,40 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all transform hover:-translate-y-2 group"
-            >
-              <div className={`w-16 h-16 ${service.color === 'seven' ? 'bg-seven' : 'bg-primary'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                <service.icon className={`w-8 h-8 ${service.color === 'seven' ? 'text-seven-foreground' : 'text-primary-foreground'}`} />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+          {services.map((service, index) => {
+            const serviceLinks: { [key: string]: string } = {
+              'Agente de IA': '/servicos/agente-ia',
+              'Integração com Banco de Dados': '/servicos/banco-dados',
+              'Mensagens Programadas': '/servicos/mensagens-programadas',
+              'Plataforma de Chat': '/servicos/plataforma-chat',
+              'Disparo Automático': '/servicos/disparo-automatico',
+              'Agendamento Inteligente': '/servicos/agendamento-inteligente',
+              'Relatórios e Analytics': '/servicos/analytics',
+              'Seven RH Platform': '/servicos/seven-rh',
+            };
+            
+            return (
+              <a
+                href={serviceLinks[service.title]}
+                key={index}
+                className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 hover:border-primary/50 hover:scale-105 transition-all group hover:shadow-[0_0_30px_hsl(165_70%_38%/0.2)] animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`w-16 h-16 ${service.color === 'seven' ? 'bg-seven' : 'bg-primary'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                  <service.icon className={`w-8 h-8 ${service.color === 'seven' ? 'text-seven-foreground' : 'text-primary-foreground'}`} />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <span className="text-primary font-semibold group-hover:text-primary-glow transition-colors">
+                  Saiba mais →
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
