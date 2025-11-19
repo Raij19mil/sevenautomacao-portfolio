@@ -1,33 +1,107 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Float, useTexture } from '@react-three/drei';
-import { Suspense, useState } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Float, useTexture, MeshDistortMaterial, Sphere } from '@react-three/drei';
+import { Suspense, useState, useRef } from 'react';
 import { Bot, Database, Zap, MessageSquare, Calendar, BarChart, Users, Sparkles } from 'lucide-react';
 import * as THREE from 'three';
 import logo3d from '@/assets/logo-3d.png';
 
+const ParticleField = () => {
+  const particlesRef = useRef<THREE.Points>(null);
+  const particleCount = 100;
+  
+  const positions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 20;
+  }
+
+  useFrame((state) => {
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+    }
+  });
+
+  return (
+    <points ref={particlesRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particleCount}
+          array={positions}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.05}
+        color="#2dd4bf"
+        transparent
+        opacity={0.6}
+        sizeAttenuation
+      />
+    </points>
+  );
+};
+
 const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
   const texture = useTexture(logo3d);
+  const meshRef = useRef<THREE.Mesh>(null);
   
+  useFrame((state) => {
+    if (meshRef.current && isHovered) {
+      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime) * 0.1;
+      meshRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
+    }
+  });
+
   return (
     <Float
       speed={2}
       rotationIntensity={0.3}
       floatIntensity={0.5}
     >
-      <mesh position={[0, 0, 0]}>
+      <mesh ref={meshRef} position={[0, 0, 0]}>
         <planeGeometry args={[4, 4]} />
         <meshStandardMaterial 
           map={texture} 
           transparent 
-          opacity={isHovered ? 0.7 : 1}
+          opacity={isHovered ? 0.85 : 1}
           side={THREE.DoubleSide}
+          emissive="#2dd4bf"
+          emissiveIntensity={isHovered ? 0.3 : 0}
         />
       </mesh>
+      
+      {/* Glow ring around logo */}
+      {isHovered && (
+        <mesh position={[0, 0, -0.5]}>
+          <torusGeometry args={[2.5, 0.05, 16, 100]} />
+          <meshStandardMaterial
+            color="#2dd4bf"
+            emissive="#2dd4bf"
+            emissiveIntensity={1}
+            transparent
+            opacity={0.5}
+          />
+        </mesh>
+      )}
     </Float>
   );
 };
 
-const TechSymbol = ({ position, icon: Icon, delay }: { position: [number, number, number], icon: any, delay: number }) => {
+const TechSymbol = ({ position, icon: Icon, delay, index }: { position: [number, number, number], icon: any, delay: number, index: number }) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const glowRef = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.5 + index;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3 + index;
+    }
+    if (glowRef.current) {
+      const scale = 1 + Math.sin(state.clock.elapsedTime * 2 + index) * 0.2;
+      glowRef.current.scale.set(scale, scale, scale);
+    }
+  });
+
   return (
     <Float
       speed={1.5}
@@ -35,21 +109,50 @@ const TechSymbol = ({ position, icon: Icon, delay }: { position: [number, number
       floatIntensity={0.8}
       floatingRange={[-0.2, 0.2]}
     >
-      <mesh position={position}>
-        <sphereGeometry args={[0.15, 16, 16]} />
-        <meshStandardMaterial 
-          color="#2dd4bf" 
-          emissive="#2dd4bf"
-          emissiveIntensity={0.5}
-          transparent
-          opacity={0.8}
-        />
-      </mesh>
+      <group position={position}>
+        {/* Outer glow sphere */}
+        <mesh ref={glowRef}>
+          <sphereGeometry args={[0.25, 16, 16]} />
+          <meshStandardMaterial 
+            color="#2dd4bf" 
+            emissive="#2dd4bf"
+            emissiveIntensity={0.8}
+            transparent
+            opacity={0.3}
+          />
+        </mesh>
+        
+        {/* Main octahedron */}
+        <mesh ref={meshRef}>
+          <octahedronGeometry args={[0.15, 0]} />
+          <meshStandardMaterial 
+            color="#2dd4bf" 
+            emissive="#2dd4bf"
+            emissiveIntensity={1}
+            transparent
+            opacity={0.9}
+            metalness={0.8}
+            roughness={0.2}
+          />
+        </mesh>
+        
+        {/* Connection lines */}
+        <mesh>
+          <cylinderGeometry args={[0.01, 0.01, 0.5, 8]} />
+          <meshStandardMaterial
+            color="#2dd4bf"
+            emissive="#2dd4bf"
+            emissiveIntensity={0.5}
+            transparent
+            opacity={0.4}
+          />
+        </mesh>
+      </group>
     </Float>
   );
 };
 
-const Scene = ({ isHovered }: { isHovered: boolean }) => {
+const Scene = ({ isHovered, mousePosition }: { isHovered: boolean, mousePosition: { x: number, y: number } }) => {
   const symbolPositions: [number, number, number][] = [
     [-3, 2, -1],
     [3, 2, -1],
@@ -61,13 +164,37 @@ const Scene = ({ isHovered }: { isHovered: boolean }) => {
     [0, -3, -1.5],
   ];
 
+  const lightRef = useRef<THREE.PointLight>(null);
+  
+  useFrame(() => {
+    if (lightRef.current) {
+      lightRef.current.position.x = mousePosition.x * 5;
+      lightRef.current.position.y = mousePosition.y * 5;
+    }
+  });
+
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} color="#2dd4bf" />
+      <ambientLight intensity={0.3} />
+      <directionalLight position={[10, 10, 5]} intensity={0.8} />
+      <pointLight 
+        ref={lightRef}
+        position={[0, 0, 5]} 
+        intensity={1.5} 
+        color="#2dd4bf" 
+        distance={15}
+      />
+      <pointLight position={[-5, -5, -2]} intensity={0.5} color="#14b8a6" />
+      <spotLight
+        position={[0, 10, 0]}
+        angle={0.3}
+        penumbra={1}
+        intensity={0.5}
+        color="#2dd4bf"
+      />
       
       <Suspense fallback={null}>
+        <ParticleField />
         <Logo3DPlane isHovered={isHovered} />
         
         {isHovered && symbolPositions.map((pos, idx) => (
@@ -76,6 +203,7 @@ const Scene = ({ isHovered }: { isHovered: boolean }) => {
             position={pos} 
             icon={Bot}
             delay={idx * 0.1}
+            index={idx}
           />
         ))}
       </Suspense>
@@ -84,9 +212,11 @@ const Scene = ({ isHovered }: { isHovered: boolean }) => {
         enableZoom={false} 
         enablePan={false}
         autoRotate={!isHovered}
-        autoRotateSpeed={0.5}
+        autoRotateSpeed={0.8}
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
+        enableDamping
+        dampingFactor={0.05}
       />
     </>
   );
@@ -94,6 +224,14 @@ const Scene = ({ isHovered }: { isHovered: boolean }) => {
 
 const Hero3D = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    setMousePosition({ x, y });
+  };
 
   const icons = [
     { Icon: Bot, label: 'IA' },
@@ -147,9 +285,13 @@ const Hero3D = () => {
               className="absolute inset-0 cursor-pointer"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              onMouseMove={handleMouseMove}
             >
-              <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-                <Scene isHovered={isHovered} />
+              <Canvas 
+                camera={{ position: [0, 0, 8], fov: 50 }}
+                gl={{ antialias: true, alpha: true }}
+              >
+                <Scene isHovered={isHovered} mousePosition={mousePosition} />
               </Canvas>
             </div>
 
@@ -186,10 +328,15 @@ const Hero3D = () => {
             )}
 
             {/* Hover instruction */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-              <p className="text-sm text-muted-foreground animate-fade-in">
-                {isHovered ? 'Explore nossa tecnologia' : 'Passe o mouse para interagir'}
-              </p>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center pointer-events-none">
+              <div className="relative">
+                <p className="text-sm text-primary font-medium animate-fade-in backdrop-blur-sm bg-background/30 px-4 py-2 rounded-full border border-primary/20">
+                  {isHovered ? '✨ Explore nossa tecnologia' : '👆 Passe o mouse para interagir'}
+                </p>
+                {isHovered && (
+                  <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse" />
+                )}
+              </div>
             </div>
           </div>
         </div>
