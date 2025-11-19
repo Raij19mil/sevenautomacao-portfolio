@@ -3,9 +3,10 @@ import { OrbitControls, Float, useTexture } from '@react-three/drei';
 import { Suspense, useState } from 'react';
 import { Bot, Database, Zap, MessageSquare, Calendar, BarChart, Users, Sparkles } from 'lucide-react';
 import * as THREE from 'three';
+import logo3d from '@/assets/logo-3d.png';
 
 const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
-  const texture = useTexture('/src/assets/logo-3d.png');
+  const texture = useTexture(logo3d);
   
   return (
     <Float
