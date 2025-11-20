@@ -20,7 +20,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3">
@@ -66,7 +66,7 @@ const Navigation = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border">
           <div className="px-4 py-2 space-y-2">
             <Link to="/" className="block py-2 text-muted-foreground" onClick={() => setIsOpen(false)}>Início</Link>
             <div className="py-2">
