@@ -70,16 +70,16 @@ const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
         />
       </mesh>
       
-      {/* Glow ring around logo */}
+      {/* Glow ring around logo - thinner */}
       {isHovered && (
         <mesh position={[0, 0, -0.5]}>
-          <torusGeometry args={[2.5, 0.05, 16, 100]} />
+          <torusGeometry args={[2.5, 0.02, 16, 100]} />
           <meshStandardMaterial
             color="#2dd4bf"
             emissive="#2dd4bf"
             emissiveIntensity={1}
             transparent
-            opacity={0.5}
+            opacity={0.4}
           />
         </mesh>
       )}
@@ -136,15 +136,15 @@ const TechSymbol = ({ position, icon: Icon, delay, index }: { position: [number,
           />
         </mesh>
         
-        {/* Connection lines */}
+        {/* Connection lines - thinner */}
         <mesh>
-          <cylinderGeometry args={[0.01, 0.01, 0.5, 8]} />
+          <cylinderGeometry args={[0.005, 0.005, 0.5, 8]} />
           <meshStandardMaterial
             color="#2dd4bf"
             emissive="#2dd4bf"
             emissiveIntensity={0.5}
             transparent
-            opacity={0.4}
+            opacity={0.3}
           />
         </mesh>
       </group>
@@ -154,14 +154,14 @@ const TechSymbol = ({ position, icon: Icon, delay, index }: { position: [number,
 
 const Scene = ({ isHovered, mousePosition }: { isHovered: boolean, mousePosition: { x: number, y: number } }) => {
   const symbolPositions: [number, number, number][] = [
-    [-3, 2, -1],
-    [3, 2, -1],
-    [-3, -2, -1],
-    [3, -2, -1],
-    [-2, 0, -2],
-    [2, 0, -2],
-    [0, 3, -1.5],
-    [0, -3, -1.5],
+    [-4, 3, -1],
+    [4, 3, -1],
+    [-4, -3, -1],
+    [4, -3, -1],
+    [-3, 0, -2],
+    [3, 0, -2],
+    [0, 4, -1.5],
+    [0, -4, -1.5],
   ];
 
   const lightRef = useRef<THREE.PointLight>(null);
@@ -212,7 +212,7 @@ const Scene = ({ isHovered, mousePosition }: { isHovered: boolean, mousePosition
         enableZoom={false} 
         enablePan={false}
         autoRotate={!isHovered}
-        autoRotateSpeed={0.8}
+        autoRotateSpeed={0.5}
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
         enableDamping
@@ -245,99 +245,92 @@ const Hero3D = () => {
   ];
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center bg-background text-foreground overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-background text-foreground overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(165_70%_38%/0.15),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(165_70%_38%/0.1),transparent_70%)]" />
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm mb-4 animate-slide-up">
-              A nova geração de automação
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Automação
-              <span className="block bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                Inteligente
-              </span>
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              A Seven é a juventude em formato de automação. Transformamos processos com tecnologia de ponta, 
-              criando soluções que conectam sua empresa ao futuro.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="https://wa.me/qr/S2LLH6YRFMOGN1" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 text-center hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20"
-              >
-                Começar Agora
-              </a>
-            </div>
-          </div>
+      {/* Text content - absolutely positioned */}
+      <div className="absolute top-1/4 left-8 md:left-16 lg:left-24 z-10 max-w-xl space-y-6 animate-fade-in">
+        <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm mb-4 animate-slide-up">
+          A nova geração de automação
+        </div>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          Automação
+          <span className="block bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            Inteligente
+          </span>
+        </h1>
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+          A Seven é a juventude em formato de automação. Transformamos processos com tecnologia de ponta.
+        </p>
+        <a 
+          href="https://wa.me/qr/S2LLH6YRFMOGN1" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="inline-block bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 text-center hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20"
+        >
+          Começar Agora
+        </a>
+      </div>
 
-          {/* Right side - 3D Canvas */}
-          <div className="relative h-[600px] animate-fade-in">
-            <div 
-              className="absolute inset-0 cursor-pointer"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              onMouseMove={handleMouseMove}
-            >
-              <Canvas 
-                camera={{ position: [0, 0, 8], fov: 50 }}
-                gl={{ antialias: true, alpha: true }}
-              >
-                <Scene isHovered={isHovered} mousePosition={mousePosition} />
-              </Canvas>
-            </div>
+      {/* Center - 3D Canvas (Full screen) */}
+      <div className="relative w-full h-screen">
+        <div 
+          className="absolute inset-0 cursor-pointer"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onMouseMove={handleMouseMove}
+        >
+          <Canvas 
+            camera={{ position: [0, 0, 8], fov: 50 }}
+            gl={{ antialias: true, alpha: true }}
+          >
+            <Scene isHovered={isHovered} mousePosition={mousePosition} />
+          </Canvas>
+        </div>
 
-            {/* Tech icons overlay */}
-            {isHovered && (
-              <div className="absolute inset-0 pointer-events-none">
-                {icons.map(({ Icon, label }, idx) => {
-                  const angle = (idx / icons.length) * Math.PI * 2;
-                  const radius = 180;
-                  const x = Math.cos(angle) * radius + 50;
-                  const y = Math.sin(angle) * radius + 50;
-                  
-                  return (
-                    <div
-                      key={idx}
-                      className="absolute animate-fade-in"
-                      style={{
-                        left: `${x}%`,
-                        top: `${y}%`,
-                        transform: 'translate(-50%, -50%)',
-                        animationDelay: `${idx * 0.1}s`,
-                      }}
-                    >
-                      <div className="flex flex-col items-center gap-1 text-primary">
-                        <div className="bg-primary/10 border border-primary/30 rounded-full p-2 backdrop-blur-sm">
-                          <Icon className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-semibold">{label}</span>
-                      </div>
+        {/* Tech icons overlay */}
+        {isHovered && (
+          <div className="absolute inset-0 pointer-events-none">
+            {icons.map(({ Icon, label }, idx) => {
+              const angle = (idx / icons.length) * Math.PI * 2;
+              const radius = 200;
+              const x = Math.cos(angle) * radius + 50;
+              const y = Math.sin(angle) * radius + 50;
+              
+              return (
+                <div
+                  key={idx}
+                  className="absolute animate-fade-in"
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    transform: 'translate(-50%, -50%)',
+                    animationDelay: `${idx * 0.1}s`,
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-1 text-primary">
+                    <div className="bg-primary/10 border border-primary/20 rounded-full p-2 backdrop-blur-sm">
+                      <Icon className="w-5 h-5" />
                     </div>
-                  );
-                })}
-              </div>
-            )}
+                    <span className="text-xs font-semibold">{label}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
-            {/* Hover instruction */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-              <div className="relative">
-                <p className="text-sm text-primary font-medium animate-fade-in backdrop-blur-sm bg-background/30 px-4 py-2 rounded-full border border-primary/20">
-                  {isHovered ? '✨ Explore nossa tecnologia' : '👆 Passe o mouse para interagir'}
-                </p>
-                {isHovered && (
-                  <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse" />
-                )}
-              </div>
-            </div>
+        {/* Hover instruction - no emojis */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center pointer-events-none z-20">
+          <div className="relative">
+            <p className="text-sm text-primary font-medium animate-fade-in backdrop-blur-sm bg-background/30 px-4 py-2 rounded-full border border-primary/20">
+              {isHovered ? 'Explore nossa tecnologia' : 'Passe o mouse para interagir'}
+            </p>
+            {isHovered && (
+              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse" />
+            )}
           </div>
         </div>
       </div>
