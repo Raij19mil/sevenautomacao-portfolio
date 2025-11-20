@@ -5,7 +5,7 @@ import { Bot, Database, Zap, MessageSquare, Calendar, BarChart, Users, Sparkles 
 import * as THREE from 'three';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import logoV3D from '@/assets/logo-v-3d.png';
+import logoSeven3D from '@/assets/logo-seven-3d.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +46,7 @@ const ParticleField = () => {
 };
 
 const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
-  const texture = useTexture(logoV3D);
+  const texture = useTexture(logoSeven3D);
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
@@ -286,11 +286,11 @@ const Hero3D = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,hsl(165_70%_38%/0.08),transparent_60%)]" />
       
       {/* Top Left - Title */}
-      <div className="text-corner absolute top-12 left-8 md:left-16 lg:left-24 z-10 max-w-md">
-        <div className="hero-badge inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm mb-4">
+      <div className="text-corner absolute top-24 md:top-32 left-8 md:left-16 z-10 max-w-sm md:max-w-md">
+        <div className="hero-badge inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-xs md:text-sm mb-3">
           A nova geração
         </div>
-        <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+        <h1 ref={titleRef} className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
           Automação
           <span className="block bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
             Inteligente
@@ -299,38 +299,38 @@ const Hero3D = () => {
       </div>
 
       {/* Top Right - Description */}
-      <div className="text-corner absolute top-12 right-8 md:right-16 lg:right-24 z-10 max-w-md text-right">
-        <p ref={subtitleRef} className="text-base md:text-lg text-muted-foreground leading-relaxed">
+      <div className="text-corner absolute top-24 md:top-32 right-8 md:right-16 z-10 max-w-xs md:max-w-sm text-right">
+        <p ref={subtitleRef} className="text-sm md:text-base text-muted-foreground leading-relaxed">
           Transformamos processos com tecnologia de ponta e inovação constante.
         </p>
       </div>
 
       {/* Bottom Left - Features */}
-      <div className="text-corner absolute bottom-12 left-8 md:left-16 lg:left-24 z-10 max-w-sm">
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-primary"></div>
-            <span className="text-sm text-muted-foreground">WebGL + GSAP</span>
+      <div className="text-corner absolute bottom-24 md:bottom-32 left-8 md:left-16 z-10 max-w-xs">
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+            <span className="text-xs md:text-sm text-muted-foreground">WebGL + GSAP</span>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-primary"></div>
-            <span className="text-sm text-muted-foreground">Animações fluidas</span>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+            <span className="text-xs md:text-sm text-muted-foreground">Animações fluidas</span>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-primary"></div>
-            <span className="text-sm text-muted-foreground">Performance otimizada</span>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+            <span className="text-xs md:text-sm text-muted-foreground">Performance otimizada</span>
           </div>
         </div>
       </div>
 
       {/* Bottom Right - CTA */}
-      <div className="text-corner absolute bottom-12 right-8 md:right-16 lg:right-24 z-10">
+      <div className="text-corner absolute bottom-24 md:bottom-32 right-8 md:right-16 z-10">
         <a 
           ref={ctaRef}
           href="https://wa.me/qr/S2LLH6YRFMOGN1" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="inline-block bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 text-center hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20"
+          className="inline-block bg-primary hover:bg-primary-glow text-primary-foreground px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base transition-all transform hover:scale-105 text-center hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20"
         >
           Começar Agora
         </a>
@@ -357,7 +357,7 @@ const Hero3D = () => {
           <div className="absolute inset-0 pointer-events-none">
             {icons.map(({ Icon, label }, idx) => {
               const angle = (idx / icons.length) * Math.PI * 2;
-              const radius = 35; // percentage from center
+              const radius = 30; // percentage from center
               const x = 50 + Math.cos(angle) * radius;
               const y = 50 + Math.sin(angle) * radius;
               
@@ -374,7 +374,7 @@ const Hero3D = () => {
                 >
                   <div className="flex flex-col items-center gap-1 text-primary">
                     <div className="bg-primary/10 border border-primary/20 rounded-full p-2 backdrop-blur-sm">
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-4 h-4" />
                     </div>
                     <span className="text-xs font-semibold">{label}</span>
                   </div>
@@ -383,15 +383,6 @@ const Hero3D = () => {
             })}
           </div>
         )}
-
-        {/* Hover instruction */}
-        <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 text-center pointer-events-none z-20">
-          <div className="relative">
-            <p className="text-sm text-primary font-medium backdrop-blur-sm bg-background/30 px-4 py-2 rounded-full border border-primary/20">
-              {isHovered ? 'Explore nossa tecnologia' : 'Passe o mouse para interagir'}
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
