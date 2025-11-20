@@ -1,9 +1,13 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, useTexture, MeshDistortMaterial, Sphere } from '@react-three/drei';
-import { Suspense, useState, useRef } from 'react';
+import { OrbitControls, Float, useTexture, Environment } from '@react-three/drei';
+import { Suspense, useState, useRef, useEffect } from 'react';
 import { Bot, Database, Zap, MessageSquare, Calendar, BarChart, Users, Sparkles } from 'lucide-react';
 import * as THREE from 'three';
-import logo3d from '@/assets/logo-3d.png';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import logoV3D from '@/assets/logo-v-3d.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ParticleField = () => {
   const particlesRef = useRef<THREE.Points>(null);
@@ -42,44 +46,50 @@ const ParticleField = () => {
 };
 
 const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
-  const texture = useTexture(logo3d);
+  const texture = useTexture(logoV3D);
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
-    if (meshRef.current && isHovered) {
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime) * 0.1;
-      meshRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
+    if (meshRef.current) {
+      if (isHovered) {
+        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.15;
+        meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+      } else {
+        meshRef.current.rotation.y += 0.002;
+      }
     }
   });
 
   return (
     <Float
-      speed={2}
-      rotationIntensity={0.3}
-      floatIntensity={0.5}
+      speed={1.5}
+      rotationIntensity={0.2}
+      floatIntensity={0.3}
     >
       <mesh ref={meshRef} position={[0, 0, 0]}>
-        <planeGeometry args={[4, 4]} />
+        <planeGeometry args={[5, 5]} />
         <meshStandardMaterial 
           map={texture} 
           transparent 
-          opacity={isHovered ? 0.85 : 1}
+          opacity={1}
           side={THREE.DoubleSide}
-          emissive="#2dd4bf"
-          emissiveIntensity={isHovered ? 0.3 : 0}
+          emissive="#14b8a6"
+          emissiveIntensity={isHovered ? 0.4 : 0.1}
+          metalness={0.8}
+          roughness={0.2}
         />
       </mesh>
       
       {/* Glow ring around logo - thinner */}
       {isHovered && (
         <mesh position={[0, 0, -0.5]}>
-          <torusGeometry args={[2.5, 0.02, 16, 100]} />
+          <torusGeometry args={[3, 0.015, 16, 100]} />
           <meshStandardMaterial
-            color="#2dd4bf"
-            emissive="#2dd4bf"
-            emissiveIntensity={1}
+            color="#14b8a6"
+            emissive="#14b8a6"
+            emissiveIntensity={1.2}
             transparent
-            opacity={0.4}
+            opacity={0.5}
           />
         </mesh>
       )}
@@ -225,6 +235,31 @@ const Scene = ({ isHovered, mousePosition }: { isHovered: boolean, mousePosition
 const Hero3D = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    // GSAP animations for text elements
+    const ctx = gsap.context(() => {
+      gsap.from('.text-corner', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.hero-badge', {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.8,
+        ease: 'back.out(1.7)'
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -247,24 +282,51 @@ const Hero3D = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-background text-foreground overflow-hidden">
       {/* Background gradient effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(165_70%_38%/0.15),transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(165_70%_38%/0.1),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(165_70%_38%/0.12),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,hsl(165_70%_38%/0.08),transparent_60%)]" />
       
-      {/* Text content - absolutely positioned */}
-      <div className="absolute top-1/4 left-8 md:left-16 lg:left-24 z-10 max-w-xl space-y-6 animate-fade-in">
-        <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm mb-4 animate-slide-up">
-          A nova geração de automação
+      {/* Top Left - Title */}
+      <div className="text-corner absolute top-12 left-8 md:left-16 lg:left-24 z-10 max-w-md">
+        <div className="hero-badge inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm mb-4">
+          A nova geração
         </div>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+        <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
           Automação
           <span className="block bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
             Inteligente
           </span>
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-          A Seven é a juventude em formato de automação. Transformamos processos com tecnologia de ponta.
+      </div>
+
+      {/* Top Right - Description */}
+      <div className="text-corner absolute top-12 right-8 md:right-16 lg:right-24 z-10 max-w-md text-right">
+        <p ref={subtitleRef} className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          Transformamos processos com tecnologia de ponta e inovação constante.
         </p>
+      </div>
+
+      {/* Bottom Left - Features */}
+      <div className="text-corner absolute bottom-12 left-8 md:left-16 lg:left-24 z-10 max-w-sm">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-primary"></div>
+            <span className="text-sm text-muted-foreground">WebGL + GSAP</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-primary"></div>
+            <span className="text-sm text-muted-foreground">Animações fluidas</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-primary"></div>
+            <span className="text-sm text-muted-foreground">Performance otimizada</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Right - CTA */}
+      <div className="text-corner absolute bottom-12 right-8 md:right-16 lg:right-24 z-10">
         <a 
+          ref={ctaRef}
           href="https://wa.me/qr/S2LLH6YRFMOGN1" 
           target="_blank" 
           rel="noopener noreferrer" 
@@ -283,21 +345,21 @@ const Hero3D = () => {
           onMouseMove={handleMouseMove}
         >
           <Canvas 
-            camera={{ position: [0, 0, 8], fov: 50 }}
+            camera={{ position: [0, 0, 10], fov: 45 }}
             gl={{ antialias: true, alpha: true }}
           >
             <Scene isHovered={isHovered} mousePosition={mousePosition} />
           </Canvas>
         </div>
 
-        {/* Tech icons overlay */}
+        {/* Tech icons overlay - circular pattern */}
         {isHovered && (
           <div className="absolute inset-0 pointer-events-none">
             {icons.map(({ Icon, label }, idx) => {
               const angle = (idx / icons.length) * Math.PI * 2;
-              const radius = 200;
-              const x = Math.cos(angle) * radius + 50;
-              const y = Math.sin(angle) * radius + 50;
+              const radius = 35; // percentage from center
+              const x = 50 + Math.cos(angle) * radius;
+              const y = 50 + Math.sin(angle) * radius;
               
               return (
                 <div
@@ -322,15 +384,12 @@ const Hero3D = () => {
           </div>
         )}
 
-        {/* Hover instruction - no emojis */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center pointer-events-none z-20">
+        {/* Hover instruction */}
+        <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 text-center pointer-events-none z-20">
           <div className="relative">
-            <p className="text-sm text-primary font-medium animate-fade-in backdrop-blur-sm bg-background/30 px-4 py-2 rounded-full border border-primary/20">
+            <p className="text-sm text-primary font-medium backdrop-blur-sm bg-background/30 px-4 py-2 rounded-full border border-primary/20">
               {isHovered ? 'Explore nossa tecnologia' : 'Passe o mouse para interagir'}
             </p>
-            {isHovered && (
-              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse" />
-            )}
           </div>
         </div>
       </div>
