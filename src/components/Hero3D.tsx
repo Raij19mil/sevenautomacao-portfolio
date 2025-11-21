@@ -92,16 +92,16 @@ const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
         
         {/* Main logo */}
         <mesh ref={meshRef} position={[0, 0, 0]}>
-          <planeGeometry args={[6.5, 6.5]} />
+          <planeGeometry args={[7, 7]} />
           <meshStandardMaterial 
             map={texture} 
             transparent 
             opacity={1}
             side={THREE.DoubleSide}
             emissive="#14b8a6"
-            emissiveIntensity={isHovered ? 0.6 : 0.2}
-            metalness={0.9}
-            roughness={0.1}
+            emissiveIntensity={isHovered ? 0.7 : 0.3}
+            metalness={0.95}
+            roughness={0.05}
           />
         </mesh>
         
