@@ -36,45 +36,57 @@ const Logo3DPlane = ({
   const glowRef = useRef<THREE.Mesh>(null);
   useFrame(state => {
     if (meshRef.current) {
-      // Continuous floating animation
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.3;
+      // Smooth floating animation
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.2;
+      
       if (isHovered) {
-        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.2;
-        meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.6) * 0.1;
+        // Gentle rotation on hover
+        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.15;
+        meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.4) * 0.08;
       } else {
-        meshRef.current.rotation.y += 0.003;
+        // Slow continuous rotation
+        meshRef.current.rotation.y += 0.002;
       }
     }
-
-    // Pulsing glow effect
-    if (glowRef.current) {
-      const scale = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.1;
-      glowRef.current.scale.set(scale, scale, 1);
-    }
   });
-  return <Float speed={2} rotationIntensity={0.4} floatIntensity={0.6}>
+  return <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
       <group>
-        {/* Outer glow */}
-        <mesh ref={glowRef} position={[0, 0, -0.3]}>
-          <planeGeometry args={[7.5, 7.5]} />
-          <meshStandardMaterial color="#14b8a6" transparent opacity={isHovered ? 0.15 : 0.08} emissive="#14b8a6" emissiveIntensity={0.5} side={THREE.DoubleSide} />
-        </mesh>
-        
-        {/* Main logo */}
+        {/* Main logo - clean and visible */}
         <mesh ref={meshRef} position={[0, 0, 0]}>
-          <planeGeometry args={[7, 7]} />
-          <meshStandardMaterial map={texture} transparent opacity={1} side={THREE.DoubleSide} emissive="#14b8a6" emissiveIntensity={isHovered ? 0.7 : 0.3} metalness={0.95} roughness={0.05} />
+          <planeGeometry args={[6, 6]} />
+          <meshStandardMaterial 
+            map={texture} 
+            transparent 
+            opacity={1} 
+            side={THREE.DoubleSide} 
+            emissive="#14b8a6" 
+            emissiveIntensity={0.15}
+            metalness={0.1} 
+            roughness={0.8}
+          />
         </mesh>
         
-        {/* Animated glow rings */}
+        {/* Subtle animated rings on hover - thinner */}
         {isHovered && <>
-            <mesh position={[0, 0, -0.6]}>
-              <torusGeometry args={[3.8, 0.02, 16, 100]} />
-              <meshStandardMaterial color="#14b8a6" emissive="#14b8a6" emissiveIntensity={1.5} transparent opacity={0.6} />
+            <mesh position={[0, 0, -0.5]}>
+              <torusGeometry args={[3.2, 0.008, 16, 100]} />
+              <meshStandardMaterial 
+                color="#14b8a6" 
+                emissive="#14b8a6" 
+                emissiveIntensity={0.8} 
+                transparent 
+                opacity={0.3} 
+              />
             </mesh>
-            <mesh position={[0, 0, -0.7]} rotation={[0, 0, Math.PI / 4]}>
-              <torusGeometry args={[4.2, 0.015, 16, 100]} />
-              <meshStandardMaterial color="#2dd4bf" emissive="#2dd4bf" emissiveIntensity={1.2} transparent opacity={0.4} />
+            <mesh position={[0, 0, -0.6]} rotation={[0, 0, Math.PI / 4]}>
+              <torusGeometry args={[3.6, 0.006, 16, 100]} />
+              <meshStandardMaterial 
+                color="#2dd4bf" 
+                emissive="#2dd4bf" 
+                emissiveIntensity={0.6} 
+                transparent 
+                opacity={0.2} 
+              />
             </mesh>
           </>}
       </group>
@@ -144,11 +156,10 @@ const Scene = ({
     }
   });
   return <>
-      <ambientLight intensity={0.3} />
-      <directionalLight position={[10, 10, 5]} intensity={0.8} />
-      <pointLight ref={lightRef} position={[0, 0, 5]} intensity={1.5} color="#2dd4bf" distance={15} />
-      <pointLight position={[-5, -5, -2]} intensity={0.5} color="#14b8a6" />
-      <spotLight position={[0, 10, 0]} angle={0.3} penumbra={1} intensity={0.5} color="#2dd4bf" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <pointLight ref={lightRef} position={[0, 0, 5]} intensity={0.8} color="#2dd4bf" distance={15} />
+      <pointLight position={[-5, -5, -2]} intensity={0.3} color="#14b8a6" />
       
       <Suspense fallback={null}>
         <ParticleField />
