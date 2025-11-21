@@ -1,6 +1,10 @@
 import { Check, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Pricing = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
@@ -8,6 +12,53 @@ const Pricing = () => {
     align: 'center',
     slidesToScroll: 1
   });
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Title animation on scroll
+      gsap.from(titleRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: 1,
+        },
+        y: 100,
+        opacity: 0,
+      });
+
+      // Subtitle animation
+      gsap.from(subtitleRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: 1,
+        },
+        y: 80,
+        opacity: 0,
+      });
+
+      // Pricing cards animation
+      gsap.from('.pricing-card', {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+          end: 'top 20%',
+          scrub: 1,
+        },
+        y: 100,
+        opacity: 0,
+        stagger: 0.15,
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -68,17 +119,17 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="precos" className="py-32 bg-background relative overflow-hidden">
+    <section ref={sectionRef} id="precos" className="py-32 bg-background relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(165_70%_38%/0.08),transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(165_70%_38%/0.08),transparent_60%)]"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Assinaturas
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p ref={subtitleRef} className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Escolha o plano ideal para suas necessidades de automação
           </p>
         </div>
@@ -90,7 +141,7 @@ const Pricing = () => {
               {plans.map((plan, index) => (
                 <div 
                   key={index}
-                  className="flex-[0_0_90%] sm:flex-[0_0_70%] lg:flex-[0_0_45%] xl:flex-[0_0_30%] min-w-0"
+                  className="pricing-card flex-[0_0_90%] sm:flex-[0_0_70%] lg:flex-[0_0_45%] xl:flex-[0_0_30%] min-w-0"
                 >
                   <div 
                     className={`bg-card/40 backdrop-blur-md border rounded-3xl p-8 relative h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_hsl(165_70%_38%/0.2)] ${

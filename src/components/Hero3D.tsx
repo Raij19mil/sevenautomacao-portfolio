@@ -48,51 +48,89 @@ const ParticleField = () => {
 const Logo3DPlane = ({ isHovered }: { isHovered: boolean }) => {
   const texture = useTexture(logoSeven3D);
   const meshRef = useRef<THREE.Mesh>(null);
+  const glowRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
+      // Continuous floating animation
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.3;
+      
       if (isHovered) {
-        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.15;
-        meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.2;
+        meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.6) * 0.1;
       } else {
-        meshRef.current.rotation.y += 0.002;
+        meshRef.current.rotation.y += 0.003;
       }
+    }
+    
+    // Pulsing glow effect
+    if (glowRef.current) {
+      const scale = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.1;
+      glowRef.current.scale.set(scale, scale, 1);
     }
   });
 
   return (
     <Float
-      speed={1.5}
-      rotationIntensity={0.2}
-      floatIntensity={0.3}
+      speed={2}
+      rotationIntensity={0.4}
+      floatIntensity={0.6}
     >
-      <mesh ref={meshRef} position={[0, 0, 0]}>
-        <planeGeometry args={[5, 5]} />
-        <meshStandardMaterial 
-          map={texture} 
-          transparent 
-          opacity={1}
-          side={THREE.DoubleSide}
-          emissive="#14b8a6"
-          emissiveIntensity={isHovered ? 0.4 : 0.1}
-          metalness={0.8}
-          roughness={0.2}
-        />
-      </mesh>
-      
-      {/* Glow ring around logo - thinner */}
-      {isHovered && (
-        <mesh position={[0, 0, -0.5]}>
-          <torusGeometry args={[3, 0.015, 16, 100]} />
+      <group>
+        {/* Outer glow */}
+        <mesh ref={glowRef} position={[0, 0, -0.3]}>
+          <planeGeometry args={[7.5, 7.5]} />
           <meshStandardMaterial
             color="#14b8a6"
-            emissive="#14b8a6"
-            emissiveIntensity={1.2}
             transparent
-            opacity={0.5}
+            opacity={isHovered ? 0.15 : 0.08}
+            emissive="#14b8a6"
+            emissiveIntensity={0.5}
+            side={THREE.DoubleSide}
           />
         </mesh>
-      )}
+        
+        {/* Main logo */}
+        <mesh ref={meshRef} position={[0, 0, 0]}>
+          <planeGeometry args={[6.5, 6.5]} />
+          <meshStandardMaterial 
+            map={texture} 
+            transparent 
+            opacity={1}
+            side={THREE.DoubleSide}
+            emissive="#14b8a6"
+            emissiveIntensity={isHovered ? 0.6 : 0.2}
+            metalness={0.9}
+            roughness={0.1}
+          />
+        </mesh>
+        
+        {/* Animated glow rings */}
+        {isHovered && (
+          <>
+            <mesh position={[0, 0, -0.6]}>
+              <torusGeometry args={[3.8, 0.02, 16, 100]} />
+              <meshStandardMaterial
+                color="#14b8a6"
+                emissive="#14b8a6"
+                emissiveIntensity={1.5}
+                transparent
+                opacity={0.6}
+              />
+            </mesh>
+            <mesh position={[0, 0, -0.7]} rotation={[0, 0, Math.PI / 4]}>
+              <torusGeometry args={[4.2, 0.015, 16, 100]} />
+              <meshStandardMaterial
+                color="#2dd4bf"
+                emissive="#2dd4bf"
+                emissiveIntensity={1.2}
+                transparent
+                opacity={0.4}
+              />
+            </mesh>
+          </>
+        )}
+      </group>
     </Float>
   );
 };
@@ -240,21 +278,60 @@ const Hero3D = () => {
   const ctaRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    // GSAP animations for text elements
+    // GSAP animations for text elements with scroll triggers
     const ctx = gsap.context(() => {
+      // Initial fade in animation
       gsap.from('.text-corner', {
         opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out'
+        y: 80,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: 'power3.out',
+        delay: 0.3
       });
 
       gsap.from('.hero-badge', {
         opacity: 0,
         scale: 0.8,
-        duration: 0.8,
-        ease: 'back.out(1.7)'
+        duration: 1,
+        ease: 'back.out(1.7)',
+        delay: 0.5
+      });
+
+      // Parallax scroll effects for text corners
+      gsap.to('.text-corner', {
+        scrollTrigger: {
+          trigger: '#inicio',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        },
+        y: -100,
+        opacity: 0.3,
+        stagger: 0.1,
+      });
+
+      // 3D canvas parallax
+      gsap.to('.hero-3d-canvas', {
+        scrollTrigger: {
+          trigger: '#inicio',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 2,
+        },
+        y: 150,
+        scale: 0.8,
+        opacity: 0.5,
+      });
+
+      // Smooth scroll behavior
+      gsap.to(window, {
+        scrollTrigger: {
+          trigger: '#inicio',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        }
       });
     });
 
@@ -337,7 +414,7 @@ const Hero3D = () => {
       </div>
 
       {/* Center - 3D Canvas (Full screen) */}
-      <div className="relative w-full h-screen">
+      <div className="relative w-full h-screen hero-3d-canvas">
         <div 
           className="absolute inset-0 cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
@@ -345,7 +422,7 @@ const Hero3D = () => {
           onMouseMove={handleMouseMove}
         >
           <Canvas 
-            camera={{ position: [0, 0, 10], fov: 45 }}
+            camera={{ position: [0, 0, 8], fov: 50 }}
             gl={{ antialias: true, alpha: true }}
           >
             <Scene isHovered={isHovered} mousePosition={mousePosition} />

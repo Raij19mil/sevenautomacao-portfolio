@@ -1,6 +1,10 @@
 import { Bot, Database, MessageSquare, Zap, Calendar, BarChart, MessagesSquare, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
@@ -9,6 +13,53 @@ const Services = () => {
     slidesToScroll: 1,
     containScroll: 'trimSnaps'
   });
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Title animation on scroll
+      gsap.from(titleRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: 1,
+        },
+        y: 100,
+        opacity: 0,
+      });
+
+      // Subtitle animation
+      gsap.from(subtitleRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: 1,
+        },
+        y: 80,
+        opacity: 0,
+      });
+
+      // Cards staggered animation
+      gsap.from('.service-card', {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+          end: 'top 20%',
+          scrub: 1,
+        },
+        y: 100,
+        opacity: 0,
+        stagger: 0.1,
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -78,15 +129,15 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 bg-secondary relative overflow-hidden">
+    <section ref={sectionRef} id="servicos" className="py-20 bg-secondary relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(165_70%_38%/0.05),transparent_70%)]"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Nossos Serviços
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p ref={subtitleRef} className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Soluções completas de automação para transformar a forma como você trabalha
           </p>
         </div>
@@ -99,9 +150,9 @@ const Services = () => {
                 <a
                   href={service.link}
                   key={index}
-                  className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
+                  className="service-card flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
                 >
-                  <div className="bg-card/30 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 h-full hover:border-primary/40 hover:scale-105 transition-all group hover:shadow-[0_0_30px_hsl(165_70%_38%/0.15)] animate-fade-in">
+                  <div className="bg-card/30 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 h-full hover:border-primary/40 hover:scale-105 transition-all group hover:shadow-[0_0_30px_hsl(165_70%_38%/0.15)]">
                     <div className={`w-16 h-16 ${service.color === 'seven' ? 'bg-seven' : 'bg-primary/10'} border ${service.color === 'seven' ? 'border-seven' : 'border-primary/20'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                       <service.icon className={`w-8 h-8 ${service.color === 'seven' ? 'text-seven' : 'text-primary'}`} />
                     </div>
