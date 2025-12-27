@@ -1,5 +1,5 @@
 import Navigation from '../components/Navigation';
-import Hero3D from '../components/Hero3D';
+import HeroLogo from '../components/HeroLogo';
 import Services from '../components/Services';
 import Pricing from '../components/Pricing';
 import Footer from '../components/Footer';
@@ -59,7 +59,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <Hero3D />
+      <HeroLogo />
       <Services />
       <Pricing />
       <div ref={ctaSectionRef} className="relative bg-secondary py-20 text-center overflow-hidden">
