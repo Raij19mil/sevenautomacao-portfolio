@@ -1,104 +1,123 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import logoImage from '@/assets/logo-seven-modern.png';
+import { ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroLogo = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLImageElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const ctx = gsap.context(() => {
+      // Entrance animations
+      gsap.from(titleRef.current, {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+      });
 
-    // Parallax scroll effect like Lando Norris site
-    gsap.to(containerRef.current, {
-      y: 200,
-      scale: 0.8,
-      opacity: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
-      },
+      gsap.from(subtitleRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power3.out',
+      });
+
+      gsap.from(ctaRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power3.out',
+      });
+
+      // Parallax on scroll
+      gsap.to(containerRef.current, {
+        y: 100,
+        opacity: 0.3,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
     });
+
+    return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (!logoRef.current || !glowRef.current) return;
-
-    if (isHovered) {
-      gsap.to(logoRef.current, {
-        scale: 1.05,
-        duration: 0.4,
-        ease: 'power2.out',
-      });
-      gsap.to(glowRef.current, {
-        opacity: 1,
-        scale: 1.1,
-        duration: 0.4,
-        ease: 'power2.out',
-      });
-    } else {
-      gsap.to(logoRef.current, {
-        scale: 1,
-        duration: 0.4,
-        ease: 'power2.out',
-      });
-      gsap.to(glowRef.current, {
-        opacity: 0,
-        scale: 1,
-        duration: 0.4,
-        ease: 'power2.out',
-      });
-    }
-  }, [isHovered]);
-
   return (
-    <div 
+    <section 
       ref={containerRef}
-      className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-20"
     >
-      {/* Glow effect on hover */}
-      <div 
-        ref={glowRef}
-        className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none"
-      >
-        <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-primary/20 blur-3xl" />
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(165_70%_38%/0.08),transparent_60%)]" />
+      
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-primary/20 bg-primary/5">
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-sm text-muted-foreground">Automação Inteligente para Empresas</span>
+        </div>
+
+        {/* Main Title */}
+        <h1 
+          ref={titleRef}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
+        >
+          Transformamos processos em{' '}
+          <span className="text-gradient">resultados</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p 
+          ref={subtitleRef}
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+        >
+          A Seven desenvolve soluções de automação e inteligência artificial 
+          que simplificam operações, reduzem custos e escalam o seu negócio.
+        </p>
+
+        {/* CTA Buttons */}
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://wa.me/qr/S2LLH6YRFMOGN1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-glow text-primary-foreground font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_hsl(165_70%_38%/0.4)]"
+          >
+            Falar com especialista
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="#services"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium py-4 px-8 transition-colors"
+          >
+            Ver soluções
+          </a>
+        </div>
+
+        {/* Trust indicators */}
+        <div className="mt-20 pt-12 border-t border-border/50">
+          <p className="text-sm text-muted-foreground mb-6">Empresas que confiam na Seven</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-50">
+            <span className="text-xl font-semibold text-muted-foreground">Cliente 1</span>
+            <span className="text-xl font-semibold text-muted-foreground">Cliente 2</span>
+            <span className="text-xl font-semibold text-muted-foreground">Cliente 3</span>
+            <span className="text-xl font-semibold text-muted-foreground">Cliente 4</span>
+          </div>
+        </div>
       </div>
-
-      {/* Main logo */}
-      <img
-        ref={logoRef}
-        src={logoImage}
-        alt="Seven Logo"
-        className="relative z-10 w-[280px] h-[280px] md:w-[380px] md:h-[380px] object-contain cursor-pointer transition-[filter] duration-300"
-        style={{
-          filter: isHovered 
-            ? 'drop-shadow(0 0 30px hsl(var(--primary) / 0.5))' 
-            : 'drop-shadow(0 0 10px hsl(var(--primary) / 0.2))',
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      />
-
-      {/* Subtle animated border on hover */}
-      <div 
-        className={`absolute z-0 w-[320px] h-[320px] md:w-[420px] md:h-[420px] rounded-full border border-primary/20 transition-all duration-500 ${
-          isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
-        }`}
-      />
-      <div 
-        className={`absolute z-0 w-[360px] h-[360px] md:w-[460px] md:h-[460px] rounded-full border border-primary/10 transition-all duration-700 ${
-          isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
-        }`}
-      />
-    </div>
+    </section>
   );
 };
 
