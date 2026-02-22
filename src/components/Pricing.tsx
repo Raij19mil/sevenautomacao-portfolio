@@ -122,7 +122,7 @@ const Pricing = () => {
     <section ref={sectionRef} id="precos" className="py-32 bg-background relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(165_70%_38%/0.08),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(165_70%_38%/0.08),transparent_60%)]"></div>
+      <div className=""></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
@@ -211,13 +211,13 @@ const Pricing = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 bg-card/90 backdrop-blur-md border border-primary/20 rounded-full p-4 hover:bg-primary/10 hover:border-primary/40 transition-all hover:scale-110 shadow-lg z-10"
-            aria-label="Previous plan">
+          
 
-            <ChevronLeft className="w-6 h-6 text-primary" />
-          </button>
+
+
+
+
+
           
           <button
             onClick={scrollNext}
