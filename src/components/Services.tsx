@@ -1,4 +1,4 @@
-import { Bot, Database, MessageSquare, Zap, Calendar, BarChart, MessagesSquare, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Bot, Database, MessageSquare, Zap, Calendar, BarChart, MessagesSquare, Users, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -125,6 +125,13 @@ const Services = () => {
       description: "Plataforma completa de Recursos Humanos para gestão de pessoas, recrutamento e desenvolvimento de talentos.",
       color: "seven",
       link: '/servicos/seven-rh'
+    },
+    {
+      icon: Globe,
+      title: "Criação de Sites",
+      description: "Sites modernos, rápidos e otimizados para converter visitantes em clientes e fortalecer sua presença digital.",
+      color: "primary",
+      link: '/servicos/criacao-sites'
     }
   ];
 

@@ -17,6 +17,7 @@ const Navigation = () => {
     { name: 'Agendamento Inteligente', path: '/servicos/agendamento-inteligente' },
     { name: 'Relatórios e Analytics', path: '/servicos/analytics' },
     { name: 'Seven RH Platform', path: '/servicos/seven-rh' },
+    { name: 'Criação de Sites', path: '/servicos/criacao-sites' },
   ];
 
   return (
