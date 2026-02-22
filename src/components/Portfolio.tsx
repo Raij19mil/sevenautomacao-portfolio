@@ -107,7 +107,7 @@ const Portfolio = () => {
             Nossos <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">Projetos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Confira alguns dos nossos trabalhos em criação de sites e dashboards
+            Confira alguns dos nossos trabalhos grandes e pequenos em criação de sites e dashboards
           </p>
         </div>
 
