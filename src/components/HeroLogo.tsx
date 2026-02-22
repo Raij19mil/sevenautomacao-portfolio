@@ -18,7 +18,7 @@ const HeroLogo = () => {
         y: 60,
         opacity: 0,
         duration: 1,
-        ease: 'power3.out',
+        ease: 'power3.out'
       });
 
       gsap.from(subtitleRef.current, {
@@ -26,7 +26,7 @@ const HeroLogo = () => {
         opacity: 0,
         duration: 1,
         delay: 0.2,
-        ease: 'power3.out',
+        ease: 'power3.out'
       });
 
       gsap.from(ctaRef.current, {
@@ -34,7 +34,7 @@ const HeroLogo = () => {
         opacity: 0,
         duration: 1,
         delay: 0.4,
-        ease: 'power3.out',
+        ease: 'power3.out'
       });
 
       // Parallax on scroll
@@ -46,8 +46,8 @@ const HeroLogo = () => {
           trigger: containerRef.current,
           start: 'top top',
           end: 'bottom top',
-          scrub: 1,
-        },
+          scrub: 1
+        }
       });
     });
 
@@ -55,10 +55,10 @@ const HeroLogo = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center px-6 pt-20"
-    >
+      className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(165_70%_38%/0.08),transparent_60%)]" />
       
@@ -70,19 +70,19 @@ const HeroLogo = () => {
         </div>
 
         {/* Main Title */}
-        <h1 
+        <h1
           ref={titleRef}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
-        >
+          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+
           Transformamos processos em{' '}
           <span className="text-gradient">resultados</span>
         </h1>
 
         {/* Subtitle */}
-        <p 
+        <p
           ref={subtitleRef}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+
           A Seven desenvolve soluções de automação e inteligência artificial 
           que simplificam operações, reduzem custos e escalam o seu negócio.
         </p>
@@ -93,32 +93,32 @@ const HeroLogo = () => {
             href="https://wa.me/qr/S2LLH6YRFMOGN1"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-glow text-primary-foreground font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_hsl(165_70%_38%/0.4)]"
-          >
+            className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-glow text-primary-foreground font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_hsl(165_70%_38%/0.4)]">
+
             Falar com especialista
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#services"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium py-4 px-8 transition-colors"
-          >
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium py-4 px-8 transition-colors">
+
             Ver soluções
           </a>
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-20 pt-12 border-t border-border/50">
-          <p className="text-sm text-muted-foreground mb-6">Empresas que confiam na Seven</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-50">
-            <span className="text-xl font-semibold text-muted-foreground">Cliente 1</span>
-            <span className="text-xl font-semibold text-muted-foreground">Cliente 2</span>
-            <span className="text-xl font-semibold text-muted-foreground">Cliente 3</span>
-            <span className="text-xl font-semibold text-muted-foreground">Cliente 4</span>
-          </div>
-        </div>
+        
+
+
+
+
+
+
+
+
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroLogo;
