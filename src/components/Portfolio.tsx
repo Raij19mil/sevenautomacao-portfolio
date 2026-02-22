@@ -73,16 +73,15 @@ const Portfolio = () => {
         y: 80,
         opacity: 0,
       });
-      gsap.from('.portfolio-card', {
+      gsap.from('.portfolio-carousel-wrapper', {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 70%',
-          end: 'top 20%',
+          end: 'top 30%',
           scrub: 1,
         },
-        y: 100,
+        y: 60,
         opacity: 0,
-        stagger: 0.15,
       });
     });
     return () => ctx.revert();
@@ -112,7 +111,7 @@ const Portfolio = () => {
         </div>
 
         {/* Carousel */}
-        <div className="relative">
+        <div className="relative portfolio-carousel-wrapper">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-8 items-stretch">
               {projects.map((project, index) => (
