@@ -43,12 +43,6 @@ const projects = [
     description: 'Painel de configurações de IA com envio automático de imagens, sinal no grupo e gestão de estoque.',
     image: aiConnect,
   },
-  {
-    title: 'Em breve',
-    category: 'Site',
-    description: 'Novos projetos de criação de sites serão adicionados aqui em breve.',
-    image: null,
-  },
 ];
 
 const Portfolio = () => {
