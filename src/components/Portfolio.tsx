@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dashboardVeiculos from '@/assets/portfolio/dashboard-veiculos.png';
+import dashboardRh from '@/assets/portfolio/dashboard-rh.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,15 +17,15 @@ const projects = [
     image: dashboardVeiculos,
   },
   {
-    title: 'Em breve',
-    category: 'Site',
-    description: 'Novos projetos de criação de sites serão adicionados aqui em breve.',
-    image: null,
+    title: 'Seven RH Platform',
+    category: 'Dashboard',
+    description: 'Plataforma completa de RH com gestão de tarefas, triagem inteligente, tickets e métricas de desempenho.',
+    image: dashboardRh,
   },
   {
     title: 'Em breve',
-    category: 'Dashboard',
-    description: 'Novos projetos de dashboards serão adicionados aqui em breve.',
+    category: 'Site',
+    description: 'Novos projetos de criação de sites serão adicionados aqui em breve.',
     image: null,
   },
 ];
