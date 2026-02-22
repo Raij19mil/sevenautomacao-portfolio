@@ -66,7 +66,7 @@ const HeroLogo = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-primary/20 bg-primary/5">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted-foreground">Automação Inteligente para Empresas</span>
+          <span className="text-sm text-muted-foreground">Desenvolvimento Inteligente para Empresas</span>
         </div>
 
         {/* Main Title */}
