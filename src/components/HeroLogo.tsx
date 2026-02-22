@@ -83,8 +83,8 @@ const HeroLogo = () => {
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
 
-          A Seven desenvolve soluções de automação e inteligência artificial 
-          que simplificam operações, reduzem custos e escalam o seu negócio.
+          A Seven desenvolve soluções que simplificam operações, reduzem custos e escalam o seu negócio.
+        
         </p>
 
         {/* CTA Buttons */}
