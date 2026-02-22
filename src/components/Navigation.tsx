@@ -25,7 +25,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3">
-            <img alt="Seven Logo" className="w-10 h-10 object-fill" src="/lovable-uploads/b9afb84a-3bed-4896-b91b-f31b70123483.png" />
+            <img alt="Seven Logo" className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain" src="/lovable-uploads/b9afb84a-3bed-4896-b91b-f31b70123483.png" />
             
           </Link>
           
