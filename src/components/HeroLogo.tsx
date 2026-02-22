@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+import sevenLogo from '@/assets/seven-logo-text.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,6 +69,9 @@ const HeroLogo = () => {
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           <span className="text-sm text-muted-foreground">Desenvolvemos soluções inteligentes e modernas</span>
         </div>
+
+        {/* Logo */}
+        <img src={sevenLogo} alt="Seven" className="h-16 md:h-20 lg:h-24 mx-auto mb-6 object-contain" />
 
         {/* Main Title */}
         <h1
