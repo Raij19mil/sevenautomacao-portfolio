@@ -1,128 +1,121 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
-import sevenLogo from '@/assets/seven-logo-text.png';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const services = [
+  'Agentes de IA',
+  'Automações',
+  'Dashboards',
+  'Criação de Sites',
+  'Banco de Dados',
+  'Mensagens Programadas',
+  'Plataforma de Chat',
+  'Disparo Automático',
+  'Agendamento Inteligente',
+  'Analytics',
+];
 
 const HeroLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
+  const vRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Entrance animations
-      gsap.from(titleRef.current, {
-        y: 60,
+      gsap.from(vRef.current, {
+        scale: 0.8,
         opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+        duration: 1.5,
+        ease: 'power3.out',
       });
 
-      gsap.from(subtitleRef.current, {
+      gsap.from(titleRef.current, {
         y: 40,
         opacity: 0,
         duration: 1,
-        delay: 0.2,
-        ease: 'power3.out'
+        delay: 0.5,
+        ease: 'power3.out',
       });
 
-      gsap.from(ctaRef.current, {
-        y: 30,
+      gsap.from('.marquee-track', {
         opacity: 0,
         duration: 1,
-        delay: 0.4,
-        ease: 'power3.out'
+        delay: 0.8,
+        ease: 'power2.out',
       });
 
-      // Parallax on scroll
       gsap.to(containerRef.current, {
-        y: 100,
+        y: 80,
         opacity: 0.3,
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
           end: 'bottom top',
-          scrub: 1
-        }
+          scrub: 1,
+        },
       });
     });
 
     return () => ctx.revert();
   }, []);
 
+  const marqueeItems = [...services, ...services];
+
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Dark background */}
+      <div className="absolute inset-0 bg-background" />
 
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(165_70%_38%/0.08),transparent_60%)]" />
-      
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-primary/20 bg-primary/5">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted-foreground">Desenvolvemos soluções inteligentes e modernas</span>
-        </div>
+      {/* Subtle radial glow behind V */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(165_70%_38%/0.06),transparent_60%)]" />
 
-        {/* Logo */}
-        <img src={sevenLogo} alt="Seven" className="h-16 md:h-20 lg:h-24 mx-auto mb-6 object-contain" />
+      {/* Large V watermark */}
+      <svg
+        ref={vRef}
+        viewBox="0 0 200 220"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[50vw] max-w-[500px] h-auto opacity-[0.08]"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 10 L100 200 L180 10 L140 10 L100 140 L60 10 Z"
+          fill="hsl(165 70% 38%)"
+        />
+      </svg>
 
-        {/* Main Title */}
+      {/* Content */}
+      <div className="relative z-10 text-center px-6">
         <h1
           ref={titleRef}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-
-          Transformamos processos em{' '}
-          <span className="text-gradient">resultados</span>
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider uppercase text-foreground"
+        >
+          SEJA BEM VINDO A{' '}
+          <span className="text-primary">SEVEN</span>
         </h1>
-
-        {/* Subtitle */}
-        <p
-          ref={subtitleRef}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-
-          A Seven desenvolve soluções que simplificam operações, reduzem custos e escalam o seu negócio.
-        
-        </p>
-
-        {/* CTA Buttons */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="https://wa.me/qr/S2LLH6YRFMOGN1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-glow text-primary-foreground font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_hsl(165_70%_38%/0.4)]">
-
-            Falar com especialista
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#services"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium py-4 px-8 transition-colors">
-
-            Ver soluções
-          </a>
-        </div>
-
-        {/* Trust indicators */}
-        
-
-
-
-
-
-
-
-
       </div>
-    </section>);
 
+      {/* Scrolling services marquee at bottom */}
+      <div className="absolute bottom-16 left-0 right-0 overflow-hidden">
+        <div className="marquee-track flex whitespace-nowrap animate-[marquee_25s_linear_infinite]">
+          {marqueeItems.map((service, i) => (
+            <span
+              key={i}
+              className="inline-flex items-center mx-6 text-sm md:text-base text-muted-foreground/60 uppercase tracking-widest"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-4" />
+              {service}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default HeroLogo;
