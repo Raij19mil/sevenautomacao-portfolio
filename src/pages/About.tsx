@@ -24,15 +24,15 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
             <div className="space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <h2 className="text-3xl font-bold text-foreground">Nossa História</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                A Seven nasceu da visão de jovens profissionais que enxergaram o potencial 
-                transformador da automação inteligente. Combinamos a energia e inovação da 
-                nova geração com expertise técnica para criar soluções que realmente fazem diferença.
+              <p className="text-lg text-muted-foreground leading-relaxed">A Seven nasceu da visão de jovens profissionais que enxergaram o potencial transformador da automação e do desenvolvimento inteligente. Combinamos a energia e inovação da nova geração com expertise técnica para criar soluções que realmente fazem diferença.
+
+
+
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Não somos apenas mais uma empresa de tecnologia. Somos o futuro acontecendo agora, 
-                onde cada linha de código é escrita pensando em gerar esperança e possibilidades 
-                para nossos clientes.
+              <p className="text-lg text-muted-foreground leading-relaxed">Não somos apenas mais uma empresa de tecnologia. Somos o futuro acontecendo agora, onde cada linha de código é escrita pensando em gerar esperança e possibilidades para nossos clientes, criamos a partir de ideias inovadoras em conjunto com nossos cliente, para que engrandeça mais ainda a ideia deles.
+
+
+
               </p>
             </div>
             
@@ -62,21 +62,21 @@ const About = () => {
 
           <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-3xl p-12 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <h2 className="text-3xl font-bold text-foreground mb-6">Nossa Missão</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Democratizar o acesso à automação inteligente, transformando empresas de todos os tamanhos 
-              através de soluções tecnológicas que combinam profissionalismo com a energia da juventude. 
-              Criamos esperança através da inovação, provando que o futuro é agora.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">Democratizar o acesso ao desenvolvimento inteligente, transformando empresas de todos os tamanhos através de soluções tecnológicas que combinam profissionalismo com a energia da juventude. Criamos esperança através da inovação, provando que o futuro é agora.
+
+
+
             </p>
           </div>
 
           <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <h2 className="text-3xl font-bold text-foreground mb-8">Pronto para transformar seu negócio?</h2>
-            <a 
+            <a
               href="https://wa.me/qr/S2LLH6YRFMOGN1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-primary hover:bg-primary-glow text-primary-foreground font-bold py-5 px-10 rounded-xl text-lg transition-all transform hover:scale-105 hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20"
-            >
+              className="inline-flex items-center justify-center bg-primary hover:bg-primary-glow text-primary-foreground font-bold py-5 px-10 rounded-xl text-lg transition-all transform hover:scale-105 hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20">
+
               Fale Conosco
             </a>
           </div>
@@ -84,8 +84,8 @@ const About = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default About;
