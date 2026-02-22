@@ -23,10 +23,10 @@ const Index = () => {
           trigger: ctaSectionRef.current,
           start: 'top 80%',
           end: 'top 30%',
-          scrub: 1,
+          scrub: 1
         },
         y: 80,
-        opacity: 0,
+        opacity: 0
       });
 
       gsap.from(ctaTextRef.current, {
@@ -34,10 +34,10 @@ const Index = () => {
           trigger: ctaSectionRef.current,
           start: 'top 75%',
           end: 'top 30%',
-          scrub: 1,
+          scrub: 1
         },
         y: 60,
-        opacity: 0,
+        opacity: 0
       });
 
       gsap.from(ctaButtonRef.current, {
@@ -45,11 +45,11 @@ const Index = () => {
           trigger: ctaSectionRef.current,
           start: 'top 70%',
           end: 'top 30%',
-          scrub: 1,
+          scrub: 1
         },
         y: 40,
         opacity: 0,
-        scale: 0.9,
+        scale: 0.9
       });
     });
 
@@ -68,24 +68,24 @@ const Index = () => {
           <h2 ref={ctaTitleRef} className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Pronto para o <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">futuro</span>?
           </h2>
-          <p ref={ctaTextRef} className="text-xl text-muted-foreground mb-10 leading-relaxed">
-            Junte-se à nova geração de empresas que automatizam com inteligência. 
-            Fale com a gente no WhatsApp e descubra como a Seven pode transformar seu negócio.
+          <p ref={ctaTextRef} className="text-xl text-muted-foreground mb-10 leading-relaxed">Junte-se à nova geração de empresas que desenvolvem e automatizam com inteligência. Fale com a gente no WhatsApp e descubra como a Seven pode transformar seu negócio.
+
+
           </p>
-          <a 
+          <a
             ref={ctaButtonRef}
             href="https://wa.me/qr/S2LLH6YRFMOGN1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-primary hover:bg-primary-glow text-primary-foreground font-bold py-5 px-10 rounded-xl text-lg transition-all transform hover:scale-105 hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20"
-          >
+            className="inline-flex items-center justify-center bg-primary hover:bg-primary-glow text-primary-foreground font-bold py-5 px-10 rounded-xl text-lg transition-all transform hover:scale-105 hover:shadow-[0_0_40px_hsl(165_70%_38%/0.4)] border border-primary/20">
+
             Falar no WhatsApp
           </a>
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Index;

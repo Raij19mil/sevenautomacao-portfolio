@@ -11,7 +11,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Bot className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-primary">AutoTech</span>
+              <span className="text-xl font-bold text-primary">Seven</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Transformando negócios através da automação inteligente e soluções personalizadas.
@@ -58,11 +58,11 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 AutoTech. Todos os direitos reservados.</p>
+          <p>© 2024 Seven. Todos os direitos reservados.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
