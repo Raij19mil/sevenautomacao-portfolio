@@ -66,7 +66,7 @@ const HeroLogo = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-primary/20 bg-primary/5">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted-foreground">Desenvolvimento Inteligente para Empresas</span>
+          <span className="text-sm text-muted-foreground">+2 anos criando soluções inteligentes para empresas</span>
         </div>
 
         {/* Main Title */}
@@ -83,7 +83,7 @@ const HeroLogo = () => {
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
 
-          A Seven desenvolve soluções que simplificam operações, reduzem custos e escalam o seu negócio.
+          Há mais de 2 anos no mercado, criamos automações, dashboards e sites que facilitam e melhoram os processos da sua empresa. Tecnologia sob medida para quem quer crescer.
         
         </p>
 

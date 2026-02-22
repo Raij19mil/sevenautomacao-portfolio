@@ -68,10 +68,7 @@ const Index = () => {
           <h2 ref={ctaTitleRef} className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Pronto para o <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">futuro</span>?
           </h2>
-          <p ref={ctaTextRef} className="text-xl text-muted-foreground mb-10 leading-relaxed">Junte-se à nova geração de empresas que desenvolvem e automatizam com inteligência. Fale com a gente no WhatsApp e descubra como a Seven pode transformar seu negócio.
-
-
-          </p>
+           <p ref={ctaTextRef} className="text-xl text-muted-foreground mb-10 leading-relaxed">Com 2 anos de experiência desenvolvendo automações, dashboards e sites, estamos prontos para transformar o seu negócio. Fale com a gente no WhatsApp.</p>
           <a
             ref={ctaButtonRef}
             href="https://wa.me/qr/S2LLH6YRFMOGN1"
