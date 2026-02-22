@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import sevenVIcon from '@/assets/seven-v-icon.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,18 +77,12 @@ const HeroLogo = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(165_70%_38%/0.06),transparent_60%)]" />
 
       {/* Large V watermark */}
-      <svg
-        ref={vRef}
-        viewBox="0 0 200 220"
+      <img
+        ref={vRef as any}
+        src={sevenVIcon}
+        alt="Seven V"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[50vw] max-w-[500px] h-auto opacity-[0.08]"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20 10 L100 200 L180 10 L140 10 L100 140 L60 10 Z"
-          fill="hsl(165 70% 38%)"
-        />
-      </svg>
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
