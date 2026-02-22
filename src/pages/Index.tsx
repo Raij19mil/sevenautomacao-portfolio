@@ -2,6 +2,7 @@ import Navigation from '../components/Navigation';
 import HeroLogo from '../components/HeroLogo';
 import Services from '../components/Services';
 import Pricing from '../components/Pricing';
+import Portfolio from '../components/Portfolio';
 import Footer from '../components/Footer';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -93,6 +94,7 @@ const Index = () => {
       </section>
 
       <Services />
+      <Portfolio />
       <Pricing />
 
       {/* CTA Section */}
