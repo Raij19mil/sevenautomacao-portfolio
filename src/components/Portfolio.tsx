@@ -6,6 +6,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dashboardVeiculos from '@/assets/portfolio/dashboard-veiculos.png';
 import dashboardRh from '@/assets/portfolio/dashboard-rh.png';
+import cardapioDigital from '@/assets/portfolio/cardapio-digital.png';
+import chatPlatform from '@/assets/portfolio/chat-platform.png';
+import aiConnect from '@/assets/portfolio/ai-connect.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +24,24 @@ const projects = [
     category: 'Dashboard',
     description: 'Plataforma completa de RH com gestão de tarefas, triagem inteligente, tickets e métricas de desempenho.',
     image: dashboardRh,
+  },
+  {
+    title: 'Cardápio Digital',
+    category: 'Site',
+    description: 'Sistema de cardápio digital interativo com seleção de pratos, navegação intuitiva e design elegante.',
+    image: cardapioDigital,
+  },
+  {
+    title: 'Plataforma de Chat',
+    category: 'Automação',
+    description: 'Plataforma de atendimento com integração WhatsApp, Chatwoot e gestão de instâncias automatizada.',
+    image: chatPlatform,
+  },
+  {
+    title: 'AI Connect',
+    category: 'Dashboard',
+    description: 'Painel de configurações de IA com envio automático de imagens, sinal no grupo e gestão de estoque.',
+    image: aiConnect,
   },
   {
     title: 'Em breve',
