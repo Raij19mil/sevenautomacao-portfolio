@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 import sevenLogo from '@/assets/seven-logo-text.png';
 
 const Footer = () => {
@@ -40,7 +40,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-foreground">Redes Sociais</h3>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center hover:bg-primary transition-colors text-foreground">
-                <Facebook className="w-5 h-5" />
+                
               </a>
               <a href="#" className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center hover:bg-primary transition-colors text-foreground">
                 <Instagram className="w-5 h-5" />
