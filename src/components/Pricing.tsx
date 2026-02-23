@@ -121,7 +121,7 @@ const Pricing = () => {
   return (
     <section ref={sectionRef} id="precos" className="py-32 bg-background relative overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(165_70%_38%/0.08),transparent_60%)]"></div>
+      
       <div className=""></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
