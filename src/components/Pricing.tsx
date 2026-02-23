@@ -219,13 +219,13 @@ const Pricing = () => {
 
 
           
-          <button
-            onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 bg-card/90 backdrop-blur-md border border-primary/20 rounded-full p-4 hover:bg-primary/10 hover:border-primary/40 transition-all hover:scale-110 shadow-lg z-10"
-            aria-label="Next plan">
+          
 
-            <ChevronRight className="w-6 h-6 text-primary" />
-          </button>
+
+
+
+
+
         </div>
       </div>
     </section>);
