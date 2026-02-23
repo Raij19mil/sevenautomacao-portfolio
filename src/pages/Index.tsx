@@ -67,7 +67,7 @@ const Index = () => {
       <section className="py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <img src={sevenLogo} alt="Seven" className="h-10 md:h-12 mx-auto mb-4 object-contain" />
+            
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Conheça como transformamos a rotina de empresas com soluções sob medida
             </p>
