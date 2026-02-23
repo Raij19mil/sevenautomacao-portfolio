@@ -1,5 +1,5 @@
 
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ExternalLink, Instagram } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -36,15 +36,25 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <a href="https://www.instagram.com/automacoesseven/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-primary-foreground" />
+                <Instagram className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
-                <h3 className="text-foreground font-semibold">Endereço</h3>
-                <p className="text-muted-foreground">São Paulo, SP - Brasil</p>
+                <h3 className="text-foreground font-semibold">Instagram</h3>
+                <p className="text-muted-foreground">@automacoesseven</p>
               </div>
-            </div>
+            </a>
+
+            <a href="https://linktr.ee/sevenauto?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnkcS2-8tr5A2gjxPl4U3U6gkSNWq9O0sC2yYykOuYkOJOaKHS-hM-PnkeBA4_aem_EecYubiKwDUllE_8tQKGiA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                <ExternalLink className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <div>
+                <h3 className="text-foreground font-semibold">Linktree</h3>
+                <p className="text-muted-foreground">Todos os nossos links</p>
+              </div>
+            </a>
           </div>
 
           <div className="bg-card border border-border rounded-xl p-8">
