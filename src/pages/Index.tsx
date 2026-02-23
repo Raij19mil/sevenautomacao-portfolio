@@ -3,6 +3,7 @@ import HeroLogo from '../components/HeroLogo';
 import Services from '../components/Services';
 import Pricing from '../components/Pricing';
 import Portfolio from '../components/Portfolio';
+import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -95,7 +96,7 @@ const Index = () => {
 
       <Services />
       <Portfolio />
-      
+      <Contact />
 
       {/* CTA Section */}
       <div ref={ctaSectionRef} className="relative bg-secondary py-20 text-center overflow-hidden">
