@@ -48,9 +48,9 @@ const Footer = () => {
               
 
 
-              <a href="#" className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center hover:bg-primary transition-colors text-foreground">
-                
-              </a>
+              
+
+
             </div>
           </div>
         </div>
