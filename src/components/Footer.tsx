@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <img src={sevenLogo} alt="Seven Logo" className="h-8 object-contain" />
+              
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Transformando negócios através da automação inteligente e soluções personalizadas.
