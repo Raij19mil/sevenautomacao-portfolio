@@ -1,6 +1,6 @@
 
 import { Instagram, ExternalLink } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import sevenLogo from '@/assets/seven-logo-text.png';
 
 const Footer = () => {
   return (
@@ -9,8 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <img alt="Seven Logo" className="w-10 h-10 object-contain" src={logo} />
-              <span className="text-lg font-bold text-foreground">Seven Technology</span>
+              
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Transformando negócios através da automação inteligente e soluções personalizadas.
