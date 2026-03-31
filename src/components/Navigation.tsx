@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/logo.png';
+const logo = '/lovable-uploads/b12719ec-62c2-4137-87e4-a33edaff9d74.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
