@@ -1,6 +1,6 @@
 
 import { Instagram, ExternalLink } from 'lucide-react';
-import sevenLogo from '@/assets/seven-logo-text.png';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
   return (
