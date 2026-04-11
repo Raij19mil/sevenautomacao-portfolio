@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dashboardVeiculos from '@/assets/portfolio/dashboard-veiculos.png';
 import dashboardRh from '@/assets/portfolio/dashboard-rh.png';
-import cardapioDigital from '@/assets/portfolio/cardapio-digital.png';
+
 import chatPlatform from '@/assets/portfolio/chat-platform.png';
 import aiConnect from '@/assets/portfolio/ai-connect.png';
 
