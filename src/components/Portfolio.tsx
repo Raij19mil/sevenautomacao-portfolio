@@ -26,12 +26,6 @@ const projects = [
     image: dashboardRh,
   },
   {
-    title: 'Cardápio Digital',
-    category: 'Site',
-    description: 'Sistema de cardápio digital interativo com seleção de pratos, navegação intuitiva e design elegante.',
-    image: cardapioDigital,
-  },
-  {
     title: 'Plataforma de Chat',
     category: 'Automação',
     description: 'Plataforma de atendimento com integração WhatsApp, Chatwoot e gestão de instâncias automatizada.',
