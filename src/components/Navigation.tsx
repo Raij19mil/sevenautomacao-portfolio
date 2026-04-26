@@ -33,22 +33,27 @@ const Navigation = () => {
             <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Início</Link>
             
             <div className="relative" onMouseEnter={() => setIsServicesOpen(true)} onMouseLeave={() => setIsServicesOpen(false)}>
-              <button className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+              <button
+                onClick={() => setIsServicesOpen((v) => !v)}
+                className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors py-2">
                 Serviços
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
-              
-              {isServicesOpen &&
-              <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-lg py-2 animate-fade-in">
-                  {services.map((service, index) =>
-                <Link
-                  key={index}
-                  to={service.path}
-                  className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors">
 
-                      {service.name}
-                    </Link>
-                )}
+              {isServicesOpen &&
+              <div className="absolute top-full left-0 w-64 pt-3 animate-fade-in">
+                  <div className="bg-card border border-border rounded-xl shadow-lg py-2">
+                    {services.map((service, index) =>
+                  <Link
+                    key={index}
+                    to={service.path}
+                    onClick={() => setIsServicesOpen(false)}
+                    className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors">
+
+                        {service.name}
+                      </Link>
+                  )}
+                  </div>
                 </div>
               }
             </div>
