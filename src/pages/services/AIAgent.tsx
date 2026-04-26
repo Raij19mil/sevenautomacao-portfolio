@@ -66,7 +66,7 @@ const AIAgent = () => {
 
           <div className="mb-20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Exemplos de Uso</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 hover:scale-105 transition-all">
                 <MessageCircle className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-bold text-foreground mb-3">E-commerce</h3>
@@ -86,6 +86,13 @@ const AIAgent = () => {
                 <h3 className="text-xl font-bold text-foreground mb-3">Educação</h3>
                 <p className="text-muted-foreground">
                   Tutoria personalizada, esclarecimento de dúvidas, suporte administrativo e engajamento de alunos
+                </p>
+              </div>
+              <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 hover:scale-105 transition-all">
+                <MessageCircle className="w-10 h-10 text-primary mb-4" />
+                <h3 className="text-xl font-bold text-foreground mb-3">Gestão de Estoque</h3>
+                <p className="text-muted-foreground">
+                  Consulta de disponibilidade em tempo real, controle de produtos, alertas de reposição e informações instantâneas ao cliente
                 </p>
               </div>
             </div>
