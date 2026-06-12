@@ -165,3 +165,157 @@
     font-weight: 300;
   }
 }
+
+/* ============================================
+   PARTNOM AESTHETIC — GLOBAL OVERRIDES
+   No JSX/text changes. Pure CSS enforcement.
+   ============================================ */
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Cap all border-radius at 4px maximum (Partnom = sharp/tech) */
+.rounded-sm, .rounded, .rounded-md, .rounded-lg, .rounded-xl,
+.rounded-2xl, .rounded-3xl {
+  border-radius: 4px !important;
+}
+.rounded-full {
+  border-radius: 2px !important;
+}
+
+/* Kill ALL decorative box-shadows except none */
+[class*="shadow-"]:not(.shadow-none) {
+  box-shadow: none !important;
+}
+
+/* Kill colored gradients on backgrounds (radial/linear hero glows) */
+.bg-\[radial-gradient\(circle_at_center\2c hsl\(165_70\%_38\%\/0\.05\)\2c transparent_70\%\)\],
+.bg-\[radial-gradient\(circle_at_center\2c hsl\(165_70\%_38\%\/0\.1\)\2c transparent_70\%\)\],
+.bg-\[radial-gradient\(circle_at_30\%_50\%\2c hsl\(165_70\%_38\%\/0\.08\)\2c transparent_60\%\)\],
+.bg-\[radial-gradient\(circle_at_70\%_50\%\2c hsl\(165_70\%_38\%\/0\.08\)\2c transparent_60\%\)\],
+.bg-\[radial-gradient\(ellipse_at_center\2c hsl\(165_70\%_38\%\/0\.06\)\2c transparent_60\%\)\],
+.bg-\[radial-gradient\(circle_at_30\%_50\%\2c hsl\(165_70\%_38\%\/0\.15\)\2c transparent_70\%\)\],
+.bg-\[radial-gradient\(circle_at_30\%_50\%\2c hsl\(165_70\%_38\%\/0\.1\)\2c transparent_70\%\)\] {
+  background: transparent !important;
+}
+
+/* Neutralize "bg-gradient-to-*" + bg-clip-text spans (used to colorize words) */
+.bg-clip-text.text-transparent {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary)) !important;
+}
+
+/* Backdrop blur — remove decorative blur per spec (keep nav blur only) */
+[class*="backdrop-blur"]:not(nav):not(nav *) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ============ NAVIGATION ============ */
+nav.fixed {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border-bottom: 0.5px solid rgba(29, 165, 131, 0.13) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  height: 64px;
+}
+nav.fixed .h-16 { height: 64px; }
+nav.fixed a, nav.fixed button {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+/* Logo link */
+nav.fixed > div > div > a:first-child {
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 18px;
+  color: hsl(var(--foreground));
+}
+/* Services dropdown panel */
+nav.fixed .absolute > div {
+  background: #111111 !important;
+  border: 0.5px solid #1F1F1F !important;
+  border-radius: 4px !important;
+}
+nav.fixed .absolute a {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+/* ============ BUTTONS — PRIMARY CTA ============ */
+a.bg-primary, button.bg-primary, .bg-primary {
+  background: #1DA583 !important;
+  color: #0A0A0A !important;
+}
+a.bg-primary:hover, button.bg-primary:hover {
+  background: #17896D !important;
+  transform: none !important;
+}
+
+/* Tone down primary/10 chip backgrounds — keep subtle */
+.bg-primary\/10 { background: rgba(29, 165, 131, 0.08) !important; }
+.bg-primary\/20 { background: rgba(29, 165, 131, 0.12) !important; }
+.bg-primary\/5  { background: rgba(29, 165, 131, 0.05) !important; }
+.bg-primary\/40 { background: rgba(29, 165, 131, 0.2)  !important; }
+.bg-primary\/30 { background: rgba(29, 165, 131, 0.15) !important; }
+
+/* Subtle borders */
+.border-primary\/10, .border-primary\/20 {
+  border-color: #1F1F1F !important;
+}
+.border-primary\/30, .border-primary\/40 {
+  border-color: rgba(29, 165, 131, 0.4) !important;
+}
+
+/* ============ HERO TITLE (HeroLogo h1) ============ */
+section h1 {
+  letter-spacing: 0.02em;
+}
+
+/* ============ CARD BACKGROUNDS ============ */
+.bg-card\/30, .bg-card\/40, .bg-card\/50, .bg-card\/80, .bg-card\/90 {
+  background: #111111 !important;
+}
+
+/* Remove hover scale on cards (Partnom is restrained) */
+.hover\:scale-105:hover { transform: translateY(-3px) !important; }
+.hover\:scale-110:hover { transform: none !important; }
+.transform.rotate-1, .transform.rotate-2, .transform.-rotate-2 { transform: none !important; }
+
+/* ============ IMAGES — grayscale by default ============ */
+img:not([alt="Seven Logo"]):not([alt="Seven V"]) {
+  filter: grayscale(25%) brightness(0.9) contrast(1.05);
+  transition: filter 0.35s ease;
+}
+.group:hover img,
+a:hover img,
+div:hover > img {
+  filter: grayscale(0%) brightness(1) contrast(1) !important;
+}
+
+/* ============ FOOTER tweaks ============ */
+footer h3 {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  font-weight: 400;
+}
+footer p, footer a, footer li {
+  font-size: 12px;
+}
+
+/* ============ Disable bg-gradient-* utilities globally ============ */
+.bg-gradient-to-r, .bg-gradient-to-l, .bg-gradient-to-t,
+.bg-gradient-to-b, .bg-gradient-to-tr, .bg-gradient-to-tl,
+.bg-gradient-to-br, .bg-gradient-to-bl {
+  background-image: none !important;
+}
+
