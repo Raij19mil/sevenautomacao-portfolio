@@ -19,6 +19,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+				display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+				mono: ['Space Mono', 'ui-monospace', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -113,10 +118,10 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px hsl(165 70% 38% / 0.3)'
+						borderColor: 'hsl(162 70% 38% / 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px hsl(165 85% 50% / 0.6)'
+						borderColor: 'hsl(162 70% 38% / 0.7)'
 					}
 				},
 			'float': {
