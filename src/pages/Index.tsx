@@ -126,7 +126,7 @@ const Index = () => {
 
       <Services />
       <Portfolio />
-      
+      <Testimonials />
 
       {/* CTA Section */}
       <div ref={ctaSectionRef} className="relative bg-secondary py-20 text-center overflow-hidden">
@@ -150,6 +150,7 @@ const Index = () => {
           </a>
         </div>
       </div>
+      <MadLibsContact />
       <Footer />
     </div>);
 
