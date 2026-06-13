@@ -1,4 +1,4 @@
-import { Bot, Zap, Sparkles } from 'lucide-react';
+import { BrainCircuit as Bot, Send as Zap, Hexagon as Sparkles } from 'lucide-react';
 const Hero = () => {
   return <section id="inicio" className="relative min-h-screen flex items-center bg-background text-foreground pt-16 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">

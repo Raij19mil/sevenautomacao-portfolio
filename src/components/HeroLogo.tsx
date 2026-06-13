@@ -84,19 +84,27 @@ const HeroLogo = () => {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[50vw] max-w-[500px] h-auto opacity-[0.08]"
       />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6">
+      {/* Split screen content — Chinafy style */}
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
         <h1
           ref={titleRef}
-          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider uppercase text-foreground"
+          className="flex flex-col md:flex-row items-center md:items-end justify-between gap-6 md:gap-12 text-foreground"
         >
-          SEJA BEM VINDO A{' '}
-          <span className="text-primary">SEVEN</span>
+          <span className="text-[18vw] md:text-[12vw] lg:text-[11vw] font-bold leading-[0.85] tracking-tight text-left">
+            SEJA
+          </span>
+          <span className="text-[18vw] md:text-[12vw] lg:text-[11vw] font-bold leading-[0.85] tracking-tight text-right text-primary">
+            SEVEN
+          </span>
         </h1>
+        <div className="mt-6 md:mt-10 flex items-center justify-between text-[11px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
+          <span>— Bem vindo</span>
+          <span>Automação · Tecnologia</span>
+        </div>
       </div>
 
       {/* Scrolling services marquee at bottom */}
-      <div className="absolute bottom-16 left-0 right-0 overflow-hidden">
+      <div className="absolute bottom-10 left-0 right-0 overflow-hidden">
         <div className="marquee-track flex whitespace-nowrap animate-[marquee_25s_linear_infinite]">
           {marqueeItems.map((service, i) => (
             <span

@@ -319,3 +319,8 @@ footer p, footer a, footer li {
   background-image: none !important;
 }
 
+/* Thinner, more professional icon strokes globally */
+svg.lucide {
+  stroke-width: 1.5;
+}
+

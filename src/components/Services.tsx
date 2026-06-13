@@ -1,4 +1,10 @@
-import { Bot, Database, MessageSquare, Zap, Calendar, BarChart, MessagesSquare, Users, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BrainCircuit, Database, MessageSquare, Send, CalendarClock, LineChart, MessagesSquare, Building2, Globe2, ChevronLeft, ChevronRight } from 'lucide-react';
+const Bot = BrainCircuit;
+const Zap = Send;
+const Calendar = CalendarClock;
+const BarChart = LineChart;
+const Users = Building2;
+const Globe = Globe2;
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useRef } from 'react';
 import gsap from 'gsap';
