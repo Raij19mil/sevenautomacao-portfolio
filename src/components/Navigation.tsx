@@ -25,12 +25,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* LEFT: pill cluster */}
         <div className="hidden md:flex items-center gap-2">
-          <div className="flex items-center bg-background/70 backdrop-blur-xl border border-border/60 rounded-full overflow-hidden">
-            <div
-              className="relative"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
-            >
+          <div className="flex items-center bg-background/70 backdrop-blur-xl border border-border/60 rounded-full">
+            <div className="relative">
               <button
                 onClick={() => setIsServicesOpen((v) => !v)}
                 className="flex items-center gap-1.5 px-5 py-2.5 text-xs uppercase tracking-[0.14em] text-foreground hover:text-primary transition-colors"
