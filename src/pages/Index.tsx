@@ -4,6 +4,9 @@ import Services from '../components/Services';
 import Pricing from '../components/Pricing';
 import Portfolio from '../components/Portfolio';
 import Footer from '../components/Footer';
+import DynamicWord from '../components/DynamicWord';
+import Testimonials from '../components/Testimonials';
+import MadLibsContact from '../components/MadLibsContact';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -63,39 +66,67 @@ const Index = () => {
       <Navigation />
       <HeroLogo />
 
-      {/* Services Highlights */}
-      <section className="py-20 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <DynamicWord />
+
+      {/* Services Highlights — Chinafy-style colored asymmetric cards */}
+      <section className="py-24 px-4 md:px-8 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-14">
+            <p className="font-mono-label mb-3">— Soluções</p>
+            <p className="text-2xl md:text-3xl text-foreground max-w-2xl">
               Conheça como transformamos a rotina de empresas com soluções sob medida
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {highlights.map((item, i) =>
-            <Link
-              key={i}
-              to={item.link}
-              className="group bg-card/30 border border-primary/10 rounded-2xl p-8 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_hsl(165_70%_38%/0.15)]">
 
-                <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
-                <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-                  Saiba mais <ArrowRight className="w-4 h-4" />
-                </span>
-              </Link>
-            )}
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
+            {highlights.map((item, i) => {
+              const Icon = item.icon;
+              const palettes = [
+                // 1: graphite / warm
+                { bg: 'bg-[#1A1A1A]', accent: 'text-foreground', span: 'md:col-span-2', minH: 'min-h-[340px]' },
+                // 2: green primary tint (hero card)
+                { bg: 'bg-primary', accent: 'text-primary-foreground', span: 'md:col-span-4', minH: 'min-h-[340px]' },
+                // 3: cool dark
+                { bg: 'bg-[#0F1A18]', accent: 'text-foreground', span: 'md:col-span-6', minH: 'min-h-[260px]' },
+              ];
+              const p = palettes[i];
+              const isPrimary = i === 1;
+              return (
+                <Link
+                  key={i}
+                  to={item.link}
+                  className={`group relative ${p.bg} ${p.span} ${p.minH} p-8 md:p-10 flex flex-col justify-between overflow-hidden border border-border hover:border-primary transition-colors`}
+                  style={{ borderRadius: 4 }}
+                >
+                  <div className="flex items-start justify-between">
+                    <Icon className={`w-9 h-9 ${p.accent}`} strokeWidth={1.5} />
+                    <ArrowRight
+                      className={`w-5 h-5 ${p.accent} opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className={`text-3xl md:text-4xl font-bold ${p.accent} mb-4 tracking-tight leading-[1.05]`}>
+                      {item.title}
+                    </h3>
+                    <p
+                      className={`${isPrimary ? 'text-primary-foreground/85' : 'text-muted-foreground'} text-sm md:text-base leading-relaxed max-w-xl`}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
+
       <Services />
       <Portfolio />
-      
+      <Testimonials />
 
       {/* CTA Section */}
       <div ref={ctaSectionRef} className="relative bg-secondary py-20 text-center overflow-hidden">
@@ -119,6 +150,7 @@ const Index = () => {
           </a>
         </div>
       </div>
+      <MadLibsContact />
       <Footer />
     </div>);
 
