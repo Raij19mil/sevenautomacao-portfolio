@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import sevenVIcon from '@/assets/seven-v-icon.png';
+import notebookAsset from '@/assets/notebook-hero.png.asset.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,25 +21,31 @@ const services = [
 const HeroLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const vRef = useRef<SVGSVGElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(vRef.current, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1.5,
-        ease: 'power3.out',
-      });
-
       gsap.from(titleRef.current, {
-        y: 40,
+        y: 60,
         opacity: 0,
-        duration: 1,
-        delay: 0.5,
+        duration: 1.1,
         ease: 'power3.out',
       });
-
+      gsap.from(subRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+        delay: 0.25,
+        ease: 'power3.out',
+      });
+      gsap.from(imgRef.current, {
+        x: 80,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.2,
+        ease: 'power3.out',
+      });
       gsap.from('.marquee-track', {
         opacity: 0,
         duration: 1,
@@ -68,43 +74,69 @@ const HeroLogo = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-hidden bg-background pt-28 md:pt-32"
     >
-      {/* Dark background */}
-      <div className="absolute inset-0 bg-background" />
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,hsl(165_70%_38%/0.10),transparent_60%)]" />
 
-      {/* Subtle radial glow behind V */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(165_70%_38%/0.06),transparent_60%)]" />
+      {/* Top label */}
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 mb-10 md:mb-16 flex items-center justify-between text-[11px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
+        <span>— Bem vindo</span>
+        <span>Automação · Tecnologia</span>
+      </div>
 
-      {/* Large V watermark */}
-      <img
-        ref={vRef as any}
-        src={sevenVIcon}
-        alt="Seven V"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[50vw] max-w-[500px] h-auto opacity-[0.08]"
-      />
+      {/* Main two-column layout — phrase left, notebook right (Chinafy style) */}
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center px-6 md:px-12 lg:px-20 pb-16">
+        {/* LEFT — headline */}
+        <div className="max-w-2xl">
+          <h1
+            ref={titleRef}
+            className="text-[14vw] md:text-[8vw] lg:text-[6.5vw] font-bold leading-[0.9] tracking-tight text-foreground"
+          >
+            Seja{' '}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-primary-foreground px-3">Seven</span>
+              <span className="absolute inset-0 bg-primary rounded-sm -z-0" aria-hidden />
+            </span>
+          </h1>
+          <p
+            ref={subRef}
+            className="mt-6 md:mt-8 text-base md:text-lg text-muted-foreground max-w-md leading-relaxed"
+          >
+            Automação inteligente, dashboards e plataformas sob medida para
+            empresas que querem operar no futuro — hoje.
+          </p>
 
-      {/* Split screen content — Chinafy style */}
-      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
-        <h1
-          ref={titleRef}
-          className="flex flex-col md:flex-row items-center md:items-end justify-between gap-6 md:gap-12 text-foreground"
-        >
-          <span className="text-[18vw] md:text-[12vw] lg:text-[11vw] font-bold leading-[0.85] tracking-tight text-left">
-            SEJA
-          </span>
-          <span className="text-[18vw] md:text-[12vw] lg:text-[11vw] font-bold leading-[0.85] tracking-tight text-right text-primary">
-            SEVEN
-          </span>
-        </h1>
-        <div className="mt-6 md:mt-10 flex items-center justify-between text-[11px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
-          <span>— Bem vindo</span>
-          <span>Automação · Tecnologia</span>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://wa.me/qr/S2LLH6YRFMOGN1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-primary hover:bg-primary-glow text-primary-foreground px-7 py-3.5 rounded-full font-semibold transition-all"
+            >
+              Começar agora
+            </a>
+            <a
+              href="#servicos"
+              className="inline-flex items-center border border-border hover:border-primary text-foreground px-7 py-3.5 rounded-full font-semibold transition-all"
+            >
+              Ver soluções
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT — notebook image */}
+        <div ref={imgRef} className="relative w-full flex justify-center lg:justify-end">
+          <img
+            src={notebookAsset.url}
+            alt="Plataforma Seven em um notebook"
+            className="w-full max-w-[640px] h-auto object-contain drop-shadow-[0_30px_60px_hsl(165_70%_38%/0.25)]"
+          />
         </div>
       </div>
 
       {/* Scrolling services marquee at bottom */}
-      <div className="absolute bottom-10 left-0 right-0 overflow-hidden">
+      <div className="absolute bottom-6 left-0 right-0 overflow-hidden">
         <div className="marquee-track flex whitespace-nowrap animate-[marquee_25s_linear_infinite]">
           {marqueeItems.map((service, i) => (
             <span
