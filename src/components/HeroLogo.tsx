@@ -103,6 +103,13 @@ const HeroLogo = () => {
           <span>Automação · Tecnologia</span>
         </div>
       </div>
+      {/* Floating laptop showcase — bottom right */}
+      <img
+        src={laptopAsset.url}
+        alt="Plataforma Seven em notebook"
+        className="hidden md:block absolute -bottom-10 -right-20 lg:-right-10 w-[55vw] max-w-[780px] h-auto pointer-events-none select-none drop-shadow-[0_30px_60px_hsl(165_70%_38%/0.25)]"
+      />
+
 
       {/* Scrolling services marquee at bottom */}
       <div className="absolute bottom-10 left-0 right-0 overflow-hidden">
