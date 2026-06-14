@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import sevenVIcon from '@/assets/seven-v-icon.png';
+import laptopAsset from '@/assets/laptop-seven.png.asset.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
