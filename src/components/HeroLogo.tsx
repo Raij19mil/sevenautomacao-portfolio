@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import notebookAsset from '@/assets/notebook-hero.png.asset.json';
+import notebookAsset from '@/assets/notebook-hero-2.png.asset.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +74,7 @@ const HeroLogo = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col overflow-hidden bg-background pt-28 md:pt-32"
+      className="relative min-h-screen flex flex-col overflow-hidden bg-background pt-28 md:pt-32 pb-0"
     >
       {/* Subtle radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,hsl(165_70%_38%/0.10),transparent_60%)]" />
@@ -135,20 +135,6 @@ const HeroLogo = () => {
         </div>
       </div>
 
-      {/* Scrolling services marquee at bottom */}
-      <div className="absolute bottom-6 left-0 right-0 overflow-hidden">
-        <div className="marquee-track flex whitespace-nowrap animate-[marquee_25s_linear_infinite]">
-          {marqueeItems.map((service, i) => (
-            <span
-              key={i}
-              className="inline-flex items-center mx-6 text-sm md:text-base text-muted-foreground/60 uppercase tracking-widest"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-4" />
-              {service}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };
