@@ -1,22 +1,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import notebookAsset from '@/assets/notebook-hero-2.png.asset.json';
+import notebookAsset from '@/assets/novo-media.png.asset.json';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const services = [
-  'Agentes de IA',
-  'Automações',
-  'Dashboards',
-  'Criação de Sites',
-  'Banco de Dados',
-  'Mensagens Programadas',
-  'Plataforma de Chat',
-  'Disparo Automático',
-  'Agendamento Inteligente',
-  'Analytics',
-];
 
 const HeroLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,12 +33,6 @@ const HeroLogo = () => {
         delay: 0.2,
         ease: 'power3.out',
       });
-      gsap.from('.marquee-track', {
-        opacity: 0,
-        duration: 1,
-        delay: 0.8,
-        ease: 'power2.out',
-      });
 
       gsap.to(containerRef.current, {
         y: 80,
@@ -68,8 +49,6 @@ const HeroLogo = () => {
 
     return () => ctx.revert();
   }, []);
-
-  const marqueeItems = [...services, ...services];
 
   return (
     <section
@@ -126,11 +105,11 @@ const HeroLogo = () => {
         </div>
 
         {/* RIGHT — notebook image */}
-        <div ref={imgRef} className="relative w-full flex justify-center lg:justify-end">
+        <div ref={imgRef} className="relative w-full flex justify-center lg:justify-end items-end">
           <img
             src={notebookAsset.url}
             alt="Plataforma Seven em um notebook"
-            className="w-full max-w-[640px] h-auto object-contain drop-shadow-[0_30px_60px_hsl(165_70%_38%/0.25)]"
+            className="w-full max-w-[640px] h-auto object-contain"
           />
         </div>
       </div>
