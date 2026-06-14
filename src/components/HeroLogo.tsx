@@ -105,11 +105,11 @@ const HeroLogo = () => {
         </div>
 
         {/* RIGHT — notebook image */}
-        <div ref={imgRef} className="relative w-full h-full flex justify-center lg:justify-end items-end">
+        <div ref={imgRef} className="relative w-full flex justify-center lg:justify-end items-end">
           <img
             src={notebookAsset.url}
             alt="Plataforma Seven em um notebook"
-            className="w-full h-full object-cover"
+            className="w-full max-w-[640px] h-auto object-contain"
           />
         </div>
       </div>
