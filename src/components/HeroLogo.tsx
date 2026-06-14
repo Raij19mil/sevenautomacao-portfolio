@@ -86,9 +86,9 @@ const HeroLogo = () => {
       </div>
 
       {/* Main two-column layout — phrase left, notebook right (Chinafy style) */}
-      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center px-6 md:px-12 lg:px-20 pb-16">
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-end px-6 md:px-12 lg:px-20 pb-0">
         {/* LEFT — headline */}
-        <div className="max-w-2xl">
+        <div className="max-w-2xl pb-16 lg:pb-24">
           <h1
             ref={titleRef}
             className="text-[14vw] md:text-[8vw] lg:text-[6.5vw] font-bold leading-[0.9] tracking-tight text-foreground"
