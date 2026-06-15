@@ -7,35 +7,12 @@ import Footer from '../components/Footer';
 import DynamicWord from '../components/DynamicWord';
 import Testimonials from '../components/Testimonials';
 import MadLibsContact from '../components/MadLibsContact';
+import SolutionsShowcase from '../components/SolutionsShowcase';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Bot, BarChart, Globe, ArrowRight } from 'lucide-react';
-import sevenLogo from '@/assets/seven-logo-text.png';
-import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const highlights = [
-{
-  icon: Bot,
-  title: 'Automações Inteligentes',
-  description: 'Criamos fluxos automatizados que eliminam tarefas repetitivas e aceleram processos. Desde chatbots com IA até integrações entre sistemas, tudo pensado para sua operação rodar sozinha.',
-  link: '/servicos/agente-ia'
-},
-{
-  icon: BarChart,
-  title: 'Dashboards & Analytics',
-  description: 'Desenvolvemos painéis visuais com dados em tempo real para que você tome decisões baseadas em números, não em achismos. Métricas claras e acionáveis.',
-  link: '/servicos/analytics'
-},
-{
-  icon: Globe,
-  title: 'Sites Modernos',
-  description: 'Criamos sites rápidos, responsivos e otimizados para conversão. Design moderno que transmite profissionalismo e gera resultados para o seu negócio.',
-  link: '/servicos/criacao-sites'
-}];
-
 
 const Index = () => {
   const ctaSectionRef = useRef<HTMLDivElement>(null);
@@ -68,60 +45,9 @@ const Index = () => {
 
       <DynamicWord />
 
-      {/* Services Highlights — Chinafy-style colored asymmetric cards */}
-      <section className="py-24 px-4 md:px-8 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-14">
-            <p className="font-mono-label mb-3">— Soluções</p>
-            <p className="text-2xl md:text-3xl text-foreground max-w-2xl">
-              Conheça como transformamos a rotina de empresas com soluções sob medida
-            </p>
-          </div>
+      <SolutionsShowcase />
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
-            {highlights.map((item, i) => {
-              const Icon = item.icon;
-              const palettes = [
-                // 1: graphite / warm
-                { bg: 'bg-[#1A1A1A]', accent: 'text-foreground', span: 'md:col-span-2', minH: 'min-h-[340px]' },
-                // 2: green primary tint (hero card)
-                { bg: 'bg-primary', accent: 'text-primary-foreground', span: 'md:col-span-4', minH: 'min-h-[340px]' },
-                // 3: cool dark
-                { bg: 'bg-[#0F1A18]', accent: 'text-foreground', span: 'md:col-span-6', minH: 'min-h-[260px]' },
-              ];
-              const p = palettes[i];
-              const isPrimary = i === 1;
-              return (
-                <Link
-                  key={i}
-                  to={item.link}
-                  className={`group relative ${p.bg} ${p.span} ${p.minH} p-8 md:p-10 flex flex-col justify-between overflow-hidden border border-border hover:border-primary transition-colors`}
-                  style={{ borderRadius: 4 }}
-                >
-                  <div className="flex items-start justify-between">
-                    <Icon className={`w-9 h-9 ${p.accent}`} strokeWidth={1.5} />
-                    <ArrowRight
-                      className={`w-5 h-5 ${p.accent} opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all`}
-                      strokeWidth={1.5}
-                    />
-                  </div>
 
-                  <div>
-                    <h3 className={`text-3xl md:text-4xl font-bold ${p.accent} mb-4 tracking-tight leading-[1.05]`}>
-                      {item.title}
-                    </h3>
-                    <p
-                      className={`${isPrimary ? 'text-primary-foreground/85' : 'text-muted-foreground'} text-sm md:text-base leading-relaxed max-w-xl`}
-                    >
-                      {item.description}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
 
       <Services />
