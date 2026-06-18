@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Bot, CheckCircle, MessageCircle, Settings, SlidersHorizontal } from 'lucide-react';
+import { Bot, CheckCircle, MessageCircle } from 'lucide-react';
 
 const AIAgent = () => {
   return (
@@ -98,59 +98,10 @@ const AIAgent = () => {
             </div>
           </div>
 
-          <div className="mb-20 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Agente Bot</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 hover:scale-105 transition-all">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-xl mb-4">
-                  <Bot className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Bots Inteligentes para WhatsApp</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Criamos agentes bot completos para automação do seu WhatsApp, capazes de responder automaticamente,
-                  qualificar leads, agendar atendimentos e encaminhar conversas para humanos quando necessário.
-                  Ideal para empresas que querem atender rápido sem perder a personalização.
-                </p>
-              </div>
-              <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 hover:scale-105 transition-all">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-xl mb-4">
-                  <Settings className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Personalização Total</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Oferecemos esse serviço da maneira que o cliente pedir. Seja um bot simples de respostas automáticas
-                  ou uma solução complexa com integração a CRMs, APIs e inteligência artificial avançada.
-                  Adaptamos o fluxo, a personalidade e as funcionalidades do bot conforme a sua demanda.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-20 animate-fade-in" style={{ animationDelay: '0.75s' }}>
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Como Funciona</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 text-2xl font-bold text-primary">1</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Entendemos sua Necessidade</h3>
-                <p className="text-muted-foreground">Analisamos o seu processo de atendimento e definimos juntos o escopo do bot ideal para o seu negócio.</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 text-2xl font-bold text-primary">2</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Desenvolvimento Sob Demanda</h3>
-                <p className="text-muted-foreground">Construímos o agente bot com as funcionalidades, integrações e comportamentos que você solicitou.</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 text-2xl font-bold text-primary">3</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Entrega e Acompanhamento</h3>
-                <p className="text-muted-foreground">Entregamos o bot pronto, fazemos testes e ajustes finos conforme o seu feedback em tempo real.</p>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center bg-card/30 backdrop-blur-sm border border-primary/20 rounded-3xl p-12 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <h2 className="text-3xl font-bold text-foreground mb-6">Pronto para ter seu próprio Agente de IA ou Bot?</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Pronto para ter seu próprio Agente de IA?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Entre em contato conosco e descubra como podemos criar uma solução personalizada — do jeito que você precisa — para o seu negócio
+              Entre em contato conosco e descubra como podemos criar uma solução personalizada para o seu negócio
             </p>
             <a 
               href="https://wa.me/qr/S2LLH6YRFMOGN1"

@@ -84,6 +84,13 @@ const Services = () => {
       link: '/servicos/agente-ia'
     },
     {
+      icon: Bot,
+      title: "Agente Bot",
+      description: "Bots inteligentes para WhatsApp e outros canais, desenvolvidos sob demanda do jeito que você precisa.",
+      color: "primary",
+      link: '/servicos/agente-bot'
+    },
+    {
       icon: Database,
       title: "Integração com Banco de Dados",
       description: "Conecte seus dados de forma segura e eficiente para análises e automações avançadas.",
