@@ -13,6 +13,7 @@ import AutoDispatch from "./pages/services/AutoDispatch";
 import SmartScheduling from "./pages/services/SmartScheduling";
 import Analytics from "./pages/services/Analytics";
 import SevenRH from "./pages/services/SevenRH";
+import FollowUp from "./pages/services/FollowUp";
 import WebsiteCreation from "./pages/services/WebsiteCreation";
 import NotFound from "./pages/NotFound";
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/servicos/agendamento-inteligente" element={<SmartScheduling />} />
           <Route path="/servicos/analytics" element={<Analytics />} />
           <Route path="/servicos/seven-rh" element={<SevenRH />} />
+          <Route path="/servicos/followup" element={<FollowUp />} />
           <Route path="/servicos/criacao-sites" element={<WebsiteCreation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
