@@ -148,9 +148,9 @@ const AIAgent = () => {
           </div>
 
           <div className="text-center bg-card/30 backdrop-blur-sm border border-primary/20 rounded-3xl p-12 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <h2 className="text-3xl font-bold text-foreground mb-6">Pronto para ter seu próprio Agente de IA?</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Pronto para ter seu próprio Agente de IA ou Bot?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Entre em contato conosco e descubra como podemos criar um assistente virtual personalizado para o seu negócio
+              Entre em contato conosco e descubra como podemos criar uma solução personalizada — do jeito que você precisa — para o seu negócio
             </p>
             <a 
               href="https://wa.me/qr/S2LLH6YRFMOGN1"
