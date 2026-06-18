@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import AIAgent from "./pages/services/AIAgent";
+import AgentBot from "./pages/services/AgentBot";
 import DatabaseIntegration from "./pages/services/Database";
 import ScheduledMessages from "./pages/services/ScheduledMessages";
 import ChatPlatform from "./pages/services/ChatPlatform";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/servicos/agente-ia" element={<AIAgent />} />
+          <Route path="/servicos/agente-bot" element={<AgentBot />} />
           <Route path="/servicos/banco-dados" element={<DatabaseIntegration />} />
           <Route path="/servicos/mensagens-programadas" element={<ScheduledMessages />} />
           <Route path="/servicos/plataforma-chat" element={<ChatPlatform />} />
