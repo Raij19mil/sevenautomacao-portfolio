@@ -36,6 +36,7 @@ const App = () => (
           <Route path="/servicos/agendamento-inteligente" element={<SmartScheduling />} />
           <Route path="/servicos/analytics" element={<Analytics />} />
           <Route path="/servicos/seven-rh" element={<SevenRH />} />
+          <Route path="/servicos/followup" element={<FollowUp />} />
           <Route path="/servicos/criacao-sites" element={<WebsiteCreation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
