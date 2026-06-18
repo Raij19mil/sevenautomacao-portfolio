@@ -20,6 +20,9 @@
     --seven: 162 70% 38%;
     --seven-foreground: 0 0% 4%;
 
+    --followup: 25 95% 53%;
+    --followup-foreground: 0 0% 4%;
+
     --secondary: 0 0% 10%;
     --secondary-foreground: 40 11% 93%;
 
@@ -65,6 +68,8 @@
     --primary-glow: 162 70% 38%;
     --seven: 162 70% 38%;
     --seven-foreground: 0 0% 4%;
+    --followup: 25 95% 53%;
+    --followup-foreground: 0 0% 4%;
     --secondary: 0 0% 10%;
     --secondary-foreground: 40 11% 93%;
     --muted: 0 0% 10%;

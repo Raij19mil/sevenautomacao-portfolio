@@ -35,10 +35,14 @@ export default {
 				foreground: 'hsl(var(--primary-foreground))',
 				glow: 'hsl(var(--primary-glow))'
 			},
-				seven: {
-					DEFAULT: 'hsl(var(--seven))',
-					foreground: 'hsl(var(--seven-foreground))'
-				},
+			seven: {
+				DEFAULT: 'hsl(var(--seven))',
+				foreground: 'hsl(var(--seven-foreground))'
+			},
+			followup: {
+				DEFAULT: 'hsl(var(--followup))',
+				foreground: 'hsl(var(--followup-foreground))'
+			},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'

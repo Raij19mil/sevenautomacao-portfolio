@@ -1,4 +1,4 @@
-import { BrainCircuit, Database, MessageSquare, Send, CalendarClock, LineChart, MessagesSquare, Building2, Globe2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BrainCircuit, Database, MessageSquare, Send, CalendarClock, LineChart, MessagesSquare, Building2, Globe2, ChevronLeft, ChevronRight, Repeat } from 'lucide-react';
 const Bot = BrainCircuit;
 const Zap = Send;
 const Calendar = CalendarClock;
@@ -131,6 +131,13 @@ const Services = () => {
       description: "Plataforma completa de Recursos Humanos para gestão de pessoas, recrutamento e desenvolvimento de talentos.",
       color: "seven",
       link: '/servicos/seven-rh'
+    },
+    {
+      icon: Repeat,
+      title: "Plataforma de Followup",
+      description: "Sistema inteligente de follow-up automatizado com painel administrativo, agendamentos e integrações com Chatwoot e WhatTicket.",
+      color: "followup",
+      link: '/servicos/followup'
     },
     {
       icon: Globe,
