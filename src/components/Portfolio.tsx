@@ -6,13 +6,19 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dashboardVeiculos from '@/assets/portfolio/dashboard-veiculos.png';
 import dashboardRh from '@/assets/portfolio/dashboard-rh.png';
-
+import followupPlatform from '@/assets/portfolio/followup-platform.png';
 import chatPlatform from '@/assets/portfolio/chat-platform.png';
 import aiConnect from '@/assets/portfolio/ai-connect.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
+  {
+    title: 'Plataforma de Followup',
+    category: 'Automação',
+    description: 'Plataforma inteligente de follow-up com painel administrativo, agendamentos, integrações Chatwoot e WhatTicket, e gestão completa de clientes.',
+    image: followupPlatform,
+  },
   {
     title: 'Dashboard Superadmin - Veículos',
     category: 'Dashboard',
