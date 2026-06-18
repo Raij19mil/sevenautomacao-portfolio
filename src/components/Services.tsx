@@ -173,8 +173,8 @@ const Services = () => {
                   className="service-card flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
                 >
                   <div className="bg-card/30 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 h-full hover:border-primary/40 hover:scale-105 transition-all group hover:shadow-[0_0_30px_hsl(165_70%_38%/0.15)]">
-                    <div className={`w-16 h-16 ${service.color === 'seven' ? 'bg-seven' : 'bg-primary/10'} border ${service.color === 'seven' ? 'border-seven' : 'border-primary/20'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                      <service.icon className={`w-8 h-8 ${service.color === 'seven' ? 'text-seven' : 'text-primary'}`} />
+                    <div className={`w-16 h-16 ${service.color === 'seven' ? 'bg-seven border-seven' : service.color === 'followup' ? 'bg-followup border-followup' : 'bg-primary/10 border-primary/20'} border rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                      <service.icon className={`w-8 h-8 ${service.color === 'seven' ? 'text-seven' : service.color === 'followup' ? 'text-followup-foreground' : 'text-primary'}`} />
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-4">
                       {service.title}

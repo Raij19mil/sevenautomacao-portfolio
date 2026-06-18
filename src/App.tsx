@@ -13,6 +13,7 @@ import AutoDispatch from "./pages/services/AutoDispatch";
 import SmartScheduling from "./pages/services/SmartScheduling";
 import Analytics from "./pages/services/Analytics";
 import SevenRH from "./pages/services/SevenRH";
+import FollowUp from "./pages/services/FollowUp";
 import WebsiteCreation from "./pages/services/WebsiteCreation";
 import NotFound from "./pages/NotFound";
 
