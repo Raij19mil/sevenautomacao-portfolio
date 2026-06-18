@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Bot, CheckCircle, MessageCircle } from 'lucide-react';
+import { Bot, CheckCircle, MessageCircle, Settings, SlidersHorizontal } from 'lucide-react';
 
 const AIAgent = () => {
   return (
