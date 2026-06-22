@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoAsset from '@/assets/seven-v-logo.png.asset.json';
+import logoAsset from '@/assets/seven-v-silver.jpeg.asset.json';
 const logo = logoAsset.url;
 
 const Navigation = () => {
