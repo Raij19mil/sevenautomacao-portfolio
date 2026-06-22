@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import notebookAsset from '@/assets/novo-media.png.asset.json';
+import BlackHole3D from './BlackHole3D';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,13 +105,11 @@ const HeroLogo = () => {
           </div>
         </div>
 
-        {/* RIGHT — notebook image */}
-        <div ref={imgRef} className="relative w-full flex justify-center lg:justify-end items-end -mb-1">
-          <img
-            src={notebookAsset.url}
-            alt="Plataforma Seven em um notebook"
-            className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[520px] lg:max-w-[560px] xl:max-w-[640px] h-auto object-contain"
-          />
+        {/* RIGHT — black hole 3D */}
+        <div ref={imgRef} className="relative w-full flex justify-center lg:justify-end items-center">
+          <div className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[560px] lg:max-w-[620px] xl:max-w-[700px]">
+            <BlackHole3D />
+          </div>
         </div>
       </div>
 
