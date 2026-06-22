@@ -4,95 +4,95 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 40 11% 93%;
+    --background: 40 20% 98%;
+    --foreground: 0 0% 8%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 40 11% 93%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 40 11% 93%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 162 70% 38%;
-    --primary-foreground: 0 0% 4%;
-    --primary-glow: 162 70% 38%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 40 20% 98%;
+    --primary-glow: 0 0% 8%;
 
-    --seven: 162 70% 38%;
-    --seven-foreground: 0 0% 4%;
+    --seven: 162 70% 30%;
+    --seven-foreground: 0 0% 100%;
 
     --followup: 25 95% 53%;
-    --followup-foreground: 0 0% 4%;
+    --followup-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 40 11% 93%;
+    --secondary: 40 15% 95%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 53%;
+    --muted: 40 15% 95%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 162 70% 38%;
-    --accent-foreground: 0 0% 4%;
+    --accent: 162 70% 30%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 13%;
-    --input: 0 0% 13%;
-    --ring: 162 70% 38%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 8%;
 
     --radius: 0.25rem;
 
-    --gradient-primary: hsl(162 70% 38%);
+    --gradient-primary: hsl(0 0% 8%);
     --gradient-hero: transparent;
-    --shadow-glow: 0 0 0 1px hsl(162 70% 38% / 0.4);
-    --shadow-card: 0 0 0 0.5px hsl(0 0% 13%);
+    --shadow-glow: 0 0 0 1px hsl(0 0% 8% / 0.15);
+    --shadow-card: 0 0 0 0.5px hsl(0 0% 88%);
 
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 40 11% 93%;
-    --sidebar-primary: 162 70% 38%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 40 11% 93%;
-    --sidebar-border: 0 0% 13%;
-    --sidebar-ring: 162 70% 38%;
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 40 15% 95%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 0% 8%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 40 11% 93%;
-    --card: 0 0% 8%;
-    --card-foreground: 40 11% 93%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 40 11% 93%;
-    --primary: 162 70% 38%;
-    --primary-foreground: 0 0% 4%;
-    --primary-glow: 162 70% 38%;
-    --seven: 162 70% 38%;
-    --seven-foreground: 0 0% 4%;
+    --background: 40 20% 98%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 40 20% 98%;
+    --primary-glow: 0 0% 8%;
+    --seven: 162 70% 30%;
+    --seven-foreground: 0 0% 100%;
     --followup: 25 95% 53%;
-    --followup-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 40 11% 93%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 53%;
-    --accent: 162 70% 38%;
-    --accent-foreground: 0 0% 4%;
+    --followup-foreground: 0 0% 100%;
+    --secondary: 40 15% 95%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 40 15% 95%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 162 70% 30%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 13%;
-    --input: 0 0% 13%;
-    --ring: 162 70% 38%;
-    --gradient-primary: hsl(162 70% 38%);
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 8%;
+    --gradient-primary: hsl(0 0% 8%);
     --gradient-hero: transparent;
-    --shadow-glow: 0 0 0 1px hsl(162 70% 38% / 0.4);
-    --shadow-card: 0 0 0 0.5px hsl(0 0% 13%);
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 40 11% 93%;
-    --sidebar-primary: 162 70% 38%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 40 11% 93%;
-    --sidebar-border: 0 0% 13%;
-    --sidebar-ring: 162 70% 38%;
+    --shadow-glow: 0 0 0 1px hsl(0 0% 8% / 0.15);
+    --shadow-card: 0 0 0 0.5px hsl(0 0% 88%);
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 40 15% 95%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 0% 8%;
   }
 }
 
@@ -115,8 +115,8 @@
   }
 
   ::selection {
-    background: rgba(29, 165, 131, 0.27);
-    color: #F0EFEB;
+    background: rgba(15, 15, 15, 0.15);
+    color: #0A0A0A;
   }
 
   ::-webkit-scrollbar {
@@ -124,14 +124,14 @@
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #141414;
+    background: #f0ece4;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(29, 165, 131, 0.53);
+    background: rgba(15, 15, 15, 0.35);
     border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #1DA583;
+    background: #0A0A0A;
   }
 }
 
@@ -166,20 +166,17 @@
   }
 
   .hero-dash {
-    color: #1DA583;
+    color: #0A0A0A;
     font-weight: 300;
   }
 }
 
 /* ============================================
-   PARTNOM AESTHETIC — GLOBAL OVERRIDES
-   No JSX/text changes. Pure CSS enforcement.
+   LIGHT AESTHETIC — GLOBAL OVERRIDES
    ============================================ */
 
-/* Smooth scroll */
 html { scroll-behavior: smooth; }
 
-/* Cap all border-radius at 4px maximum (Partnom = sharp/tech) */
 .rounded-sm, .rounded, .rounded-md, .rounded-lg, .rounded-xl,
 .rounded-2xl, .rounded-3xl {
   border-radius: 4px !important;
@@ -188,12 +185,10 @@ html { scroll-behavior: smooth; }
   border-radius: 2px !important;
 }
 
-/* Kill ALL decorative box-shadows except none */
 [class*="shadow-"]:not(.shadow-none) {
   box-shadow: none !important;
 }
 
-/* Kill colored gradients on backgrounds (radial/linear hero glows) */
 .bg-\[radial-gradient\(circle_at_center\2c hsl\(165_70\%_38\%\/0\.05\)\2c transparent_70\%\)\],
 .bg-\[radial-gradient\(circle_at_center\2c hsl\(165_70\%_38\%\/0\.1\)\2c transparent_70\%\)\],
 .bg-\[radial-gradient\(circle_at_30\%_50\%\2c hsl\(165_70\%_38\%\/0\.08\)\2c transparent_60\%\)\],
@@ -204,7 +199,6 @@ html { scroll-behavior: smooth; }
   background: transparent !important;
 }
 
-/* Neutralize "bg-gradient-to-*" + bg-clip-text spans (used to colorize words) */
 .bg-clip-text.text-transparent {
   background: none !important;
   -webkit-background-clip: initial !important;
@@ -213,7 +207,6 @@ html { scroll-behavior: smooth; }
   color: hsl(var(--primary)) !important;
 }
 
-/* Backdrop blur — remove decorative blur per spec (keep nav blur only) */
 [class*="backdrop-blur"]:not(nav):not(nav *) {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -221,8 +214,8 @@ html { scroll-behavior: smooth; }
 
 /* ============ NAVIGATION ============ */
 nav.fixed {
-  background: rgba(10, 10, 10, 0.95) !important;
-  border-bottom: 0.5px solid rgba(29, 165, 131, 0.13) !important;
+  background: rgba(250, 248, 243, 0.9) !important;
+  border-bottom: 0.5px solid rgba(15, 15, 15, 0.08) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   height: 64px;
@@ -234,18 +227,17 @@ nav.fixed a, nav.fixed button {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: hsl(var(--foreground));
 }
-/* Logo link */
 nav.fixed > div > div > a:first-child {
   letter-spacing: 0.06em;
   font-weight: 700;
   font-size: 18px;
   color: hsl(var(--foreground));
 }
-/* Services dropdown panel */
 nav.fixed .absolute > div {
-  background: #111111 !important;
-  border: 0.5px solid #1F1F1F !important;
+  background: #ffffff !important;
+  border: 0.5px solid #e5e5e5 !important;
   border-radius: 4px !important;
 }
 nav.fixed .absolute a {
@@ -255,47 +247,44 @@ nav.fixed .absolute a {
 
 /* ============ BUTTONS — PRIMARY CTA ============ */
 a.bg-primary, button.bg-primary, .bg-primary {
-  background: #1DA583 !important;
-  color: #0A0A0A !important;
+  background: #0A0A0A !important;
+  color: #FAFAFA !important;
 }
 a.bg-primary:hover, button.bg-primary:hover {
-  background: #17896D !important;
+  background: #1F1F1F !important;
   transform: none !important;
 }
 
-/* Tone down primary/10 chip backgrounds — keep subtle */
-.bg-primary\/10 { background: rgba(29, 165, 131, 0.08) !important; }
-.bg-primary\/20 { background: rgba(29, 165, 131, 0.12) !important; }
-.bg-primary\/5  { background: rgba(29, 165, 131, 0.05) !important; }
-.bg-primary\/40 { background: rgba(29, 165, 131, 0.2)  !important; }
-.bg-primary\/30 { background: rgba(29, 165, 131, 0.15) !important; }
+.bg-primary\/10 { background: rgba(15, 15, 15, 0.05) !important; }
+.bg-primary\/20 { background: rgba(15, 15, 15, 0.08) !important; }
+.bg-primary\/5  { background: rgba(15, 15, 15, 0.03) !important; }
+.bg-primary\/40 { background: rgba(15, 15, 15, 0.15) !important; }
+.bg-primary\/30 { background: rgba(15, 15, 15, 0.1)  !important; }
 
-/* Subtle borders */
 .border-primary\/10, .border-primary\/20 {
-  border-color: #1F1F1F !important;
+  border-color: #e5e5e5 !important;
 }
 .border-primary\/30, .border-primary\/40 {
-  border-color: rgba(29, 165, 131, 0.4) !important;
+  border-color: rgba(15, 15, 15, 0.3) !important;
 }
 
-/* ============ HERO TITLE (HeroLogo h1) ============ */
 section h1 {
   letter-spacing: 0.02em;
 }
 
 /* ============ CARD BACKGROUNDS ============ */
 .bg-card\/30, .bg-card\/40, .bg-card\/50, .bg-card\/80, .bg-card\/90 {
-  background: #111111 !important;
+  background: #ffffff !important;
+  border: 0.5px solid #ececec !important;
 }
 
-/* Remove hover scale on cards (Partnom is restrained) */
 .hover\:scale-105:hover { transform: translateY(-3px) !important; }
 .hover\:scale-110:hover { transform: none !important; }
 .transform.rotate-1, .transform.rotate-2, .transform.-rotate-2 { transform: none !important; }
 
-/* ============ IMAGES — grayscale by default ============ */
+/* ============ IMAGES ============ */
 img:not([alt="Seven Logo"]):not([alt="Seven V"]) {
-  filter: grayscale(25%) brightness(0.9) contrast(1.05);
+  filter: grayscale(15%) brightness(0.98) contrast(1.02);
   transition: filter 0.35s ease;
 }
 .group:hover img,
@@ -304,7 +293,7 @@ div:hover > img {
   filter: grayscale(0%) brightness(1) contrast(1) !important;
 }
 
-/* ============ FOOTER tweaks ============ */
+/* ============ FOOTER ============ */
 footer h3 {
   font-family: 'Space Mono', monospace;
   font-size: 11px;
@@ -317,15 +306,12 @@ footer p, footer a, footer li {
   font-size: 12px;
 }
 
-/* ============ Disable bg-gradient-* utilities globally ============ */
 .bg-gradient-to-r, .bg-gradient-to-l, .bg-gradient-to-t,
 .bg-gradient-to-b, .bg-gradient-to-tr, .bg-gradient-to-tl,
 .bg-gradient-to-br, .bg-gradient-to-bl {
   background-image: none !important;
 }
 
-/* Thinner, more professional icon strokes globally */
 svg.lucide {
   stroke-width: 1.5;
 }
-
