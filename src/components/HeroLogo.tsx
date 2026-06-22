@@ -74,7 +74,7 @@ const HeroLogo = () => {
           >
             {'\u00a0'}
             <span className="relative inline-block">
-              <span className="relative z-10 text-primary-foreground px-2 md:px-3">Você{'\u00a0'}</span>
+              <span className="relative z-10 text-primary-foreground px-2 md:px-3">Agora{'\u00a0'}</span>
               <span className="absolute inset-0 bg-primary rounded-sm -z-0" aria-hidden />
             </span>
             Seven
