@@ -21,7 +21,7 @@ const DynamicWord = () => {
             <span
               key={index}
               className="inline-block px-4 md:px-6 py-1 animate-fade-in"
-              style={{ borderRadius: 4, backgroundColor: '#ffffff', color: '#0B3A47' }}
+              style={{ borderRadius: 4, backgroundColor: '#ffffff', color: '#000000' }}
             >
               {WORDS[index]}
             </span>
