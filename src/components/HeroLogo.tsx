@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import notebookAsset from '@/assets/novo-media.png.asset.json';
+import BlackHole3D from './BlackHole3D';
 
 gsap.registerPlugin(ScrollTrigger);
 
